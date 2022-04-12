@@ -1,0 +1,47 @@
+<!-- NavBar. Agregar accesos de lado izquierdo. De lado derecho colocar boton para cambio de modo oscuro a claro-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 10px; padding-right: 10px;">
+    <span class="navbrand-bar">
+        <img src="./assets/argen-programa-logo.png" alt="" width="50">
+        <span class="prueba">Argentina Programa</span>
+    </span>
+
+    <button class="navbar-toggler ms-auto" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#acerca-de"></a> -->
+                <a href="https://www.facebook.com/leonardo.vaudagna.1/" class="fa fa-facebook" width="50" (click)="isMenuCollapsed = true">
+                </a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#experiencia">Experiencia</a> -->
+                <a href="https://www.instagram.com/leonardovaudagna/" class="fa fa-instagram" width="50" (click)="isMenuCollapsed = true"></a>
+
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
+                <a href="#" class="fa fa-youtube" width="50" (click)="isMenuCollapsed = true"></a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
+                <a href="#" class="fa fa-twitter" width="50" (click)="isMenuCollapsed = true"></a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
+                <a href="#" class="fa fa-github" width="50" (click)="isMenuCollapsed = true"></a>
+            </li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-light" style="margin-left: 5px;">Iniciar sesión</button>
+</nav>
+
+<div style="margin: 20px">
+    <span></span>
+</div>
+
