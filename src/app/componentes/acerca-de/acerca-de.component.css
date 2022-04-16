@@ -1,0 +1,55 @@
+#foto-perfil {
+    clip-path: circle();
+    position: absolute;
+    width: 41%;
+    top: 30%;
+    left: 3%;
+    margin: auto;
+}
+
+.acerca-de {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+
+@media (max-width: 767px){
+    .acerca-de {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    #foto-perfil {
+        float: inline-end;
+        /* position: absolute; */
+        justify-content: center;
+        width: 55%;     
+        top: 160px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    .texto-portada {
+        margin-top: 150px;
+        justify-content: center;
+    }
+
+    .parrafo-1 {
+        margin: 10px;
+        width: 45%;
+        display:inline-block;
+        box-sizing:border-box;
+    }
+
+    .parrafo-2{
+        margin: 10px;
+        width: 45%;
+        display:inline-block;
+        box-sizing:border-box;
+    }
+
+}

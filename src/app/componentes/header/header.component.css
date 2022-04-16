@@ -11,3 +11,32 @@
     text-decoration: none;
     color: white;
   }
+
+#img-header {
+    width: 100%;
+}
+
+.navbar-custom {
+    background-color: #072227;
+    color: white;
+}
+
+.portada-img {
+    height: 300px;
+    background-color: #35858B;
+}
+
+.texto-portada {
+    color: white;
+    position: relative;
+    bottom: -220px;
+}
+
+@media (max-width: 767px){
+    .texto-portada {
+        color: white;
+        position: relative;
+        text-align: center;
+        top: 10px;
+    }
+}
