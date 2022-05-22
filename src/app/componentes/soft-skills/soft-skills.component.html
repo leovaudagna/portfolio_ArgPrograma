@@ -1,0 +1,143 @@
+<div class="fondo-soft">
+<div>
+    <h2>Soft Skills</h2>
+</div>
+
+<div class="container">
+    <div class="row row-cols-3 soft-skills">
+        <div *ngFor="let sskill of listaSoftSkills">
+            <circle-progress [title]="sskill.nombreSSkill" [showSubtitle]="false" [imageSrc]="''"
+                [percent]="sskill.porcentajeSSkill" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
+                [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
+                [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="false">
+            </circle-progress>
+                <a (click)="onOpenModalS('edit', sskill)" data-target="#editSoftSkillsModal"
+                    class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
+                    data-original-title="Edit"><i class="fa fa-pencil"></i>
+                </a>
+                <a (click)="onOpenModalS('delete', sskill)" data-target="#deleteSoftSkillsModal"
+                    class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal"
+                    data-original-title="Delete">
+                    <i class="fa fa-times"></i>
+                </a>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="text-center">
+        <button type="button" class="btn btn-success" data-target="#addSoftSkillModal" data-toggle="modal"
+            (click)="onOpenModalS('add')">
+            <a class="nav-link" style="color:aliceblue"></a>
+            Añadir Soft-Skill<span class="sr-only">(current)</span>
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="addSoftSkillModal" tabindex="-1" role="dialog" aria-labelledby="addSoftSkillModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSoftSkillModalLabel">Añadir Soft-Skill</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">
+                        &times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form #addFormS="ngForm" (ngSubmit)="onAddSoftSkills(addFormS)">
+                    <div class="form-group">
+                        <label for="nombreSSkill">Soft-Skill</label>
+                        <input type="text" ngModel name="nombreSSkill" class="form-control" id="nombreSSkill"
+                            placeholder="Soft-Skill" required>
+                    </div>
+                    <input type="hidden" ngModel="{{ editarSoftSkills?.id }}" name="idS" class="form-control"
+                        id="idS" aria-describedby="emailHelp" placeholder="" />
+                    <div class="form-group">
+                        <label for="porcentajeSSkill">Porcentaje</label>
+                        <input type="number" ngModel name="porcentajeSSkill" class="form-control"
+                            id="porcentajeSSkill" placeholder="Porcentaje" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="add-softskills-form" class="btn btn-secondary"
+                            data-dismiss="modal">Cerrar</button>
+                        <button [disabled]="addFormS.invalid" type="submit" class="btn btn-primary">Añadir
+                            cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal Editar -->
+
+<div class="modal fade" id="editSoftSkillsModal" tabindex="-1" role="dialog"
+aria-labelledby="editSoftSkillsModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="updateSoftSkillsModalLabel">Editar Soft-Skill {{
+                editarSoftSkills?.nombreSSkill }}
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form #editForm="ngForm">
+                <input type="hidden" ngModel="{{ editarSoftSkills?.id }}" name="id" class="form-control" id="id"
+                    aria-describedby="emailHelp" placeholder="" />
+                <div class="form-group">
+                    <label for="name">Soft-Skill</label>
+                    <input type="text" ngModel="{{ editarSoftSkills?.nombreSSkill }}" name="nombreSSkill"
+                        class="form-control" id="nombreSSkill" aria-describedby="emailHelp"
+                        placeholder="nombreSSkill" />
+                </div>
+                <div class="form-group">
+                    <label for="porcentajeHSkill">Porcentaje</label>
+                    <input type="number" ngModel="{{ editarSoftSkills?.porcentajeSSkill }}"
+                        name="porcentajeSSkill" class="form-control" id="porcentajeSSkill"
+                        aria-describedby="emailHelp" placeholder="Porcentaje" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar
+                    </button>
+                    <button (click)="onUpdateSoftSkills(editForm.value)" data-dismiss="modal"
+                        class="btn btn-primary">Añadir cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal Delete -->
+
+<div data-bs-toggle="modal" data-bs-target="#deleteSoftSkillsLabel" class="modal fade" id="deleteSoftSkillsModal"
+tabindex="-1" role="dialog" aria-labelledby="deleteSoftSkillsModalLabel" aria-hidden="true">
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteSoftSkillsModalLabel">Eliminar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Estás seguro de eliminar el registro de educacion? {{eliminarSoftSkills?.nombreSSkill}}</p>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="onDeleteSoftSkills(eliminarSoftSkills!.id)" class="btn btn-danger"
+                    data-dismiss="modal">Si</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="fondo-footer">
+    <p>Leonardo Vaudagna - 2022</p>
+
+    <div>
+         <a *ngFor="let red of listaRedes" class="fa fa-{{red.nombreRed.toLowerCase()}} custom" href="{{red.urlRed}}" target="_blank"></a>        
+    </div>
+    <a *ngIf="persona" class="custom" href="mailto:{{persona.correoElectronico}}">{{persona.correoElectronico}}</a>  
+
+
+    <p>Proyecto final - Argentina Programa 2021/2022</p>
+</div>

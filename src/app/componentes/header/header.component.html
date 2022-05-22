@@ -1,56 +1,98 @@
-<!-- NavBar. Agregar accesos de lado izquierdo. De lado derecho colocar boton para cambio de modo oscuro a claro-->
-
-<nav class="navbar navbar-expand-lg navbar-custom" style="padding-left: 10px; padding-right: 10px;">
-    <span class="navbrand-bar">
-        <img src="./assets/img/argen-programa-logo.png" alt="" width="50">
-        <span class="prueba">Argentina Programa</span>
-    </span>
-
-    <button class="navbar-toggler ms-auto" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNav">
-
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#acerca-de"></a> -->
-                <a href="https://www.facebook.com/leonardo.vaudagna.1/" class="fa fa-facebook" width="50" (click)="isMenuCollapsed = true">
-                </a>
-            </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#experiencia">Experiencia</a> -->
-                <a href="https://www.instagram.com/leonardovaudagna/" class="fa fa-instagram" width="50" (click)="isMenuCollapsed = true"></a>
-
-            </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
-                <a href="#" class="fa fa-youtube" width="50" (click)="isMenuCollapsed = true"></a>
-            </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
-                <a href="#" class="fa fa-twitter" width="50" (click)="isMenuCollapsed = true"></a>
-            </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#contactame">Contacto</a> -->
-                <a href="#" class="fa fa-github" width="50" (click)="isMenuCollapsed = true"></a>
-            </li>
-        </ul>
-    </div>
-    <button type="button" class="btn btn-light" style="margin-left: 5px;">Iniciar sesión</button>
-</nav>
+<app-navbar></app-navbar>
 
 <div class="portada-img">
-    <!-- <img id="img-header" src="../../../assets/img/header-prueba.jpg" alt="imagen-portada" class="img-fluid"> -->
     <div class="row">
         <div class="col-6">
         </div>
-        <div class="col-md-6 texto-portada">
-            <h2>Leonardo Vaudagna</h2>
-            <p>Full Stack Developer Jr.</p>
+        <div class="col-md-6 texto-portada" *ngIf="persona">
+            <h1>{{persona.nombre}} {{persona.apellido}}</h1>
+            <p>{{persona.titulo}}</p>
         </div>
+        
     </div>
-    
+    <a (click)="onOpenModalH('edit', persona)" data-target="#editPersonaHModal" class="btn btn-primary-tooltips"
+            data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil"></i>
+        </a>
+
 
 </div>
+
+<!-- Modal Editar -->
+
+<div class="modal fade" id="editPersonaHModal" tabindex="-1" role="dialog" aria-labelledby="editPersonaHModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatePersonaHModalLabel">Acerca de mí:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <input type="hidden" ngModel="{{ editarPersona?.id }}" name="id" class="form-control" id="id"
+                        aria-describedby="emailHelp" placeholder="" />
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" ngModel="{{ editarPersona?.nombre }}" name="nombre" class="form-control"
+                            id="nombre" aria-describedby="emailHelp" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" ngModel="{{ editarPersona?.apellido }}" name="apellido" class="form-control"
+                            id="apellido" aria-describedby="emailHelp" placeholder="Apellido" />
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo">Titutlo</label>
+                        <input type="text" ngModel="{{ editarPersona?.titulo }}" name="titulo" class="form-control"
+                            id="titulo" aria-describedby="emailHelp" placeholder="Título" />
+                        <input type="hidden" ngModel="{{ editarPersona?.fechaNac }}" name="fechaNac"
+                            class="form-control" id="fechaNac" aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.acercaDe }}" name="acercaDe"
+                            class="form-control" id="acercaDe" aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.correoElectronico }}" name="correoElectronico"
+                            class="form-control" id="correoElectronico" aria-describedby="emailHelp" placeholder="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="urlFoto">Foto</label>
+                        <input type="text" ngModel="{{ editarPersona?.urlFoto }}" name="urlFoto" class="form-control"
+                            id="urlFoto" aria-describedby="emailHelp" placeholder="www.linkdefoto.com/" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar
+                        </button>
+                        <button (click)="onUpdatePersona(editForm.value)" data-dismiss="modal"
+                            class="btn btn-primary">Añadir cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete -->
+
+<!-- <div data-bs-toggle="modal" data-bs-target="#deleteModelLabel" class="modal fade" id="deleteEducationModal"
+    tabindex="-1" role="dialog" aria-labelledby="deleteEducationModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteEducationModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Estás seguro de eliminar el registro de educacion? {{eliminarPersona?.titulo}}</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeletePersona(eliminarEducacion!.id)" class="btn btn-danger"
+                        data-dismiss="modal">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

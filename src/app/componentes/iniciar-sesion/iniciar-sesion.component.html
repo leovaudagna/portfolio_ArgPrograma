@@ -1,11 +1,30 @@
-<form class="m-3">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo electrónico</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Tu contraseña">
-  </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+<div class="sesion-component">
+
+
+<div class="iniciar-sesion">
+  <form>
+    <div class="holis">
+      <img class="mb-4" src="../../../assets/img/argen-programa-logo.png" alt="" width="72" height="57">
+      <span class="texto">Argentina Programa</span>
+      <!-- <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1> -->
+    </div>
+    <div class="form-floating">
+      <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="Correo electrónico">
+      <label for="floatingInput">Correo electrónico</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Contraseña</label>      
+    </div>
+
+    <!-- <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div> -->
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
+    <p class="mt-5 mb-3 text-muted" style="text-align: center;">Leonardo Vaudagna - 2021</p>
+  </form>
+</div>
+
+</div>

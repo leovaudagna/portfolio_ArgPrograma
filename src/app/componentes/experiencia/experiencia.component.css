@@ -1,0 +1,15 @@
+.fondo-experiencia {
+    padding-left: 25px;
+    padding-top: 100px;
+    background-color: #D9D9D9;
+    color: #313E40;
+}
+
+.lista-trabajo{
+    padding: 25px 20px;
+    margin-left: 25px;
+}
+
+.fa-pencil:hover{
+    color: #313E40;
+}

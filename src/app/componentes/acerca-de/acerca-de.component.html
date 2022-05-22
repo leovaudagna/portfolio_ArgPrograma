@@ -1,21 +1,104 @@
 <div class="container-fluid acerca-de">
     <div class="row">
         <div class="col-md-6 col-sd-12">
-            <img src="../../../assets/img/foto-perfil.jpg" alt="foto de perfil" class="img-fluid" id="foto-perfil">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="foto de perfil" class="img-fluid" id="foto-perfil">
         </div>
         <div class="col-md-6 col-sd-12">
             <div class="texto-portada">
-            <h2>Acerca de mí</h2>
-            <div class="parrafo-1">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis autem saepe blanditiis fugiat
-                    aliquam eveniet repellendus earum inventore qui.!</p>
-            </div>            
-            <div class="parrafo-2">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis autem saepe blanditiis fugiat
-                    aliquam eveniet repellendus earum inventore qui.!</p>
+                <h2>Acerca de mí
+                    <a (click)="onOpenModal('edit', persona)" data-target="#editPersonaModal"
+                        class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
+                        data-original-title="Edit"><i class="fa fa-pencil"></i>
+                    </a>
+                </h2>
+                <div class="parrafo-1" *ngIf="persona">
+                    <p>Fecha de Nacimiento: {{persona.fechaNac}}</p>
+                </div>
+                <div class="parrafo-2" *ngIf="persona">
+                    <p>{{persona.acercaDe}}</p>
+                </div>
+
             </div>
-            
-        </div>
         </div>
     </div>
 </div>
+
+<!-- Modal Editar -->
+
+<div class="modal fade" id="editPersonaModal" tabindex="-1" role="dialog" aria-labelledby="editPersonaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatePersonaModalLabel">Acerca de mí:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <input type="hidden" ngModel="{{ editarPersona?.id }}" name="id" class="form-control" id="id"
+                        aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.nombre }}" name="nombre" class="form-control" id="nombre"
+                        aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.apellido }}" name="apellido" class="form-control" id="apellido"
+                        aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.titulo }}" name="titulo" class="form-control" id="titulo"
+                        aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.correoElectronico }}" name="correoElectronico" class="form-control" id="correoElectronico"
+                        aria-describedby="emailHelp" placeholder="" />
+                        <input type="hidden" ngModel="{{ editarPersona?.urlFoto }}" name="urlFoto" class="form-control" id="urlFoto"
+                        aria-describedby="emailHelp" placeholder="" />
+                    <div class="form-group">
+                        <label for="fechaNac">Fecha de nacimiento:</label>
+                        <input type="text" ngModel="{{ editarPersona?.fechaNac }}" name="fechaNac" class="form-control"
+                            id="fechaNac" aria-describedby="emailHelp" placeholder="Nací el:" />
+                    </div>
+                    <div class="form-group">
+                        <label for="establecimiento">Acerca de mi:</label>
+                        <input type="text" ngModel="{{ editarPersona?.acercaDe }}" name="acercaDe" class="form-control"
+                            id="acercaDe" aria-describedby="emailHelp" placeholder="..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="correoElectronico">Correo electrónico</label>
+                        <input type="text" ngModel="{{ editarPersona?.correoElectronico }}" name="correoElectronico"
+                            class="form-control" id="correoElectronico" aria-describedby="emailHelp"
+                            placeholder="cuenta@correo.com" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar
+                        </button>
+                        <button (click)="onUpdatePersona(editForm.value)" data-dismiss="modal"
+                            class="btn btn-primary">Añadir cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete -->
+
+<!-- <div data-bs-toggle="modal" data-bs-target="#deleteModelLabel" class="modal fade" id="deleteEducationModal"
+    tabindex="-1" role="dialog" aria-labelledby="deleteEducationModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteEducationModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Estás seguro de eliminar el registro de educacion? {{eliminarPersona?.titulo}}</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeletePersona(eliminarEducacion!.id)" class="btn btn-danger"
+                        data-dismiss="modal">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

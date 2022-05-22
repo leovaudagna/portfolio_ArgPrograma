@@ -1,0 +1,18 @@
+#en-construccion {
+    width: 300px;
+    filter: invert(100%) sepia(1%) saturate(1000%) hue-rotate(142deg) brightness(91%) contrast(108%);
+}
+
+.fondo-proyectos {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 25px;
+    background-color: #5C6F73;
+    color: #EBF0F2;
+}
+
+.prueba {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
