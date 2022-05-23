@@ -1,23 +1,49 @@
 .dropdown-menu {
-    min-width: 220px;
+    min-width: 210px;
     text-align: center;
+    margin-bottom: 20px;
+    background-color: #D9D9D9;
+    border-color: #9b9b9b;    
   }
+
+.dropdown-divider {
+    border-color: #D9D9D9;
+    color: white;
+}
+
+.dropdown-menu:hover .btn-primary-tooltips{
+    color: #292b2c;
+}
+
+.dropdown-menu:hover .btn-secondary-tooltip{
+    color: #292b2c;
+}
+
+.agregar {
+    background-color: #292b2c;
+}
 
 .dropdown-content
 {
-    right: 0;
+    right: 0;    
 }
 
 .custom {
     padding-right: 10px;
     color: black;
     text-decoration: none;
+    
 }
 
-.pd {
+.btn-secondary-tooltip {
+    color: #9b9b9b;
+    float: left;
+}
+
+.btn-primary-tooltips {
+    color: #9b9b9b;
     float: right;
 }
 
-.p {
-    float: right;
-}
+
+

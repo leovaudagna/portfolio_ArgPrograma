@@ -5,9 +5,17 @@
     width: 100%;
     max-width: 430px;
     top: 30%;
-    left: 3%;
+    left: 5%;
     margin: auto;
     filter: grayscale(100%);
+}
+
+.btn-primary-tooltips {
+    color: #313E40;
+}
+
+.acerca-de:hover .btn-primary-tooltips {
+    color: black;
 }
 
 .acerca-de {
@@ -19,12 +27,15 @@
 
 .texto-portada {
     color: #D9D9D9;
+    padding-right: 40px;
 }
 
 
 @media (max-width: 950px){
     #foto-perfil {
         width: 350px;
+        top: 40%;
+
     }
 }
 
@@ -34,37 +45,27 @@
     .acerca-de {
         padding-left: 15px;
         padding-right: 15px;
+        padding-bottom: 20%;
     }
 
     #foto-perfil {
         float: inline-end;
-        /* position: absolute; */
+        position: absolute;
         justify-content: center;
         width: 380px;     
         top: 230px;
         margin: auto;
         left: 0;
         right: 0;
-        z-index: 1;
     }
 
     .texto-portada {
-        margin-top: 150px;
+        margin-top: 190px;
+        margin-left: 10px;
+        margin-right: 10px;
         justify-content: center;
     }
 
-    .parrafo-1 {
-        margin: 10px;
-        width: 45%;
-        display:inline-block;
-        box-sizing:border-box;
-    }
 
-    .parrafo-2{
-        margin: 10px;
-        width: 45%;
-        display:inline-block;
-        box-sizing:border-box;
-    }
 
 }

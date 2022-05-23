@@ -1,16 +1,12 @@
-.prueba {
-    font-family: 'Encode Sans', sans-serif;
-    color: black;    
-}
 
-.fa {
+/* .fa {
     padding: 0px;
     font-size: 25px;
     width: 50px;
     text-align: center;
     text-decoration: none;
     color: black;
-  }
+  } */
 
 #img-header {
     width: 100%;
@@ -27,16 +23,32 @@
     background-color: #5C6F73;
 }
 
+.btn-primary-tooltips {
+    color: #5C6F73;
+}
+
+.portada-img:hover .btn-primary-tooltips {
+    color: black;
+}
+
 .texto-portada {
     color: #EBF0F2;
     position: relative;
-    bottom: -210px;
+    bottom: -200px;
 }
 
 @media (max-width: 767px){
     .texto-portada {
         position: relative;
         text-align: center;
-        top: -40px;
+        top: 10px;
+    }
+
+    .texto-portada p {
+        padding-left: 40px;
+    }
+
+    #img-header {
+        position: relative;
     }
 }

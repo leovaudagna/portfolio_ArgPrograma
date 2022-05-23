@@ -1,14 +1,4 @@
-<!-- <div class="fondo-proyectos">
 
-    <div>
-        <h2>Proyectos</h2>
-    </div>
-
-    <div class="row prueba">
-        
-    </div>
-
-</div> -->
 <div class="fondo-proyectos"> 
 <div>
     <h1>Proyectos</h1>
@@ -45,15 +35,21 @@
         </div>
     </div>
 
-    <div>
-        <div class="text-center">
-            <button type="button" class="btn btn-success" data-target="#addProyectosModal" data-toggle="modal" (click)="onOpenModal('add')">
-                <a class="nav-link" style="color:aliceblue"></a>
-                Añadir proyecto<span class="sr-only">(current)</span>
-            </button>
+    <div *ngIf="listaProyectos?.length == 0" class="text-center">
+        <div col-4>
+            <img src="../../../assets/img/en-construccion.png" alt="" id="en-construccion">
         </div>
     </div>
 
+    <div>
+        <div class="añadir text-center">
+            <button type="button" class="btn btn-dark" data-target="#addProyectosModal" data-toggle="modal" (click)="onOpenModal('add')">
+                <a class="nav-link" style="color:aliceblue">Añadir proyecto</a>
+                <span class="sr-only">(current)</span>
+            </button>
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- Añadir Modal-->
@@ -78,10 +74,6 @@
                 <div class="form-group">
                     <label for="descrProy">Descripcion</label>
                     <input type="text" ngModel name="descrProy" class="form-control" id="descrProy" placeholder="Descripcion" required>
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
-                    <input type="text" ngModel name="descripcion" class="form-control" id="descripcion" placeholder="Descripcion" required>
                 </div>
                 <div class="form-group">
                     <label for="linkProy">Link del Proyecto</label>
@@ -179,10 +171,5 @@
 </div>
 </div>
 
-<div *ngIf="listaProyectos?.length == 0">
-    <div col-4>
-        <img src="../../../assets/img/en-construccion.png" alt="" id="en-construccion">
-    </div>
-</div>
 
-</div>
+

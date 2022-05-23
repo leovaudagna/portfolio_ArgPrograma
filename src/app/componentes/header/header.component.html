@@ -5,14 +5,17 @@
         <div class="col-6">
         </div>
         <div class="col-md-6 texto-portada" *ngIf="persona">
-            <h1>{{persona.nombre}} {{persona.apellido}}</h1>
-            <p>{{persona.titulo}}</p>
+            <h1 *ngIf="!persona.nombre && !persona.apellido" style="color: #8FA1A6">Completar</h1>  
+            
+            <h1>{{persona.nombre}} {{persona.apellido}} </h1>
+            <p>{{persona.titulo}} <span *ngIf="!persona.titulo">. . .</span><a (click)="onOpenModalH('edit', persona)" data-target="#editPersonaHModal" class="btn btn-primary-tooltips"
+                data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil" id="2"></i>
+            </a></p>
+            
         </div>
         
     </div>
-    <a (click)="onOpenModalH('edit', persona)" data-target="#editPersonaHModal" class="btn btn-primary-tooltips"
-            data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil"></i>
-        </a>
+    
 
 
 </div>

@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SoftSkillsComponent } from './componentes/soft-skills/soft-skills.component';
 import { NavbarComponent } from './componentes/header/navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,8 +46,7 @@ import { NavbarComponent } from './componentes/header/navbar/navbar.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
-    
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

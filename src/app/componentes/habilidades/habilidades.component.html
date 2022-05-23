@@ -1,11 +1,11 @@
 <div class="fondo-habilidades">
     <div>
-        <h2>Hard Skills</h2>
+        <h2 style="padding-left: 25px;">Hard Skills</h2>
     </div>
 
     <div class="container">
         <div class="row row-cols-3 hard-skills">
-            <div *ngFor="let hskill of listaHardSkills">
+            <div *ngFor="let hskill of listaHardSkills" class="habilidad-circulo">
                 <circle-progress [title]="hskill.nombreHSkill" [showSubtitle]="false" [imageSrc]="''"
                     [percent]="hskill.porcentajeHSkill" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
                     [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
@@ -26,14 +26,14 @@
 
     <div>
         <div class="text-center">
-            <button type="button" class="btn btn-success" data-target="#addHardSkillModal" data-toggle="modal"
+            <button type="button" class="btn btn-dark" data-target="#addHardSkillModal" data-toggle="modal"
                 (click)="onOpenModalH('add')">
-                <a class="nav-link" style="color:aliceblue"></a>
-                Añadir Hard-Skill<span class="sr-only">(current)</span>
+                <a class="nav-link" style="color:aliceblue">Añadir Hard-Skill</a>
+               <span class="sr-only">(current)</span>
             </button>
         </div>
     </div>
-
+</div>
     <!-- Modal Añadir -->
 
     <div class="modal fade" id="addHardSkillModal" tabindex="-1" role="dialog" aria-labelledby="addHardSkillModalLabel"
@@ -57,8 +57,8 @@
                         <input type="hidden" ngModel="{{ editarHardSkills?.id }}" name="idHS" class="form-control"
                             id="idHS" aria-describedby="emailHelp" placeholder="" />
                         <div class="form-group">
-                            <label for="porcentajeHSkill">Porcentaje</label>
-                            <input type="number" ngModel name="porcentajeHSkill" class="form-control"
+                            <label for="porcentajeHSkill">Porcentaje de conocimiento</label>
+                            <input type="number" min="0" max="100" ngModel name="porcentajeHSkill" class="form-control"
                                 id="porcentajeHSkill" placeholder="Porcentaje" required>
                         </div>
                         <div class="modal-footer">
@@ -141,7 +141,3 @@
             </div>
         </div>
     </div>
-
-    <p id="divisor">....</p>
-
-    

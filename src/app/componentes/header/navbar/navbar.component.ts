@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private redesService: HeaderService) { }
 
+
   ngOnInit(): void {
     this.getRedes();
   }

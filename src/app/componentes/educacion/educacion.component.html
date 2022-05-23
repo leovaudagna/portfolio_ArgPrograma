@@ -22,10 +22,10 @@
             </a>            
         </div>
         <div class="row">
-            <div class="col-2">
-                <img class="educacion-logo"src="{{educacion.logoUrl}}">
+            <div class="col-3" >
+                <img class="educacion-logo" src="{{educacion.logoUrl}}">
             </div>
-            <div class="col-8">
+            <div class="col-md-auto educacion-texto">
                 <h3>{{educacion.titulo}}</h3>
                 <p>{{educacion.establecimiento}}</p>
                 <span>{{educacion.fechaInic_ed}}</span><span> / </span><span>{{educacion.fechaFin_ed}}</span>
@@ -34,10 +34,10 @@
     </div>
 
     <div>
-        <div class="text-center">
-            <button type="button" class="btn btn-success" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
-                <a class="nav-link" style="color:aliceblue"></a>
-                Añadir educacion<span class="sr-only">(current)</span>
+        <div class="añadir text-center">
+            <button type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
+                <a class="nav-link" style="color:aliceblue"> Añadir educacion</a>
+               <span class="sr-only">(current)</span>
             </button>
         </div>
     </div>
