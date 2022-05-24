@@ -1,7 +1,7 @@
 <div class="container-fluid acerca-de">
-    <div class="row">
+    <div class="row" *ngIf="persona">
         <div class="col-md-6 col-sd-12">
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="foto de perfil" class="img-fluid" id="foto-perfil">
+            <img src="{{persona.urlFoto}}" alt="foto de perfil" class="img-fluid" id="foto-perfil">
         </div>
         <div class="col-md-6 col-sd-12">
             <div class="texto-portada">
@@ -11,10 +11,10 @@
                         data-original-title="Edit"><i class="fa fa-pencil"></i>
                     </a>
                 </h2>
-                <div class="parrafo-1" *ngIf="persona">
+                <div class="parrafo-1">
                     <p>Fecha de Nacimiento: {{persona.fechaNac}}</p>
                 </div>
-                <div class="parrafo-2" *ngIf="persona">
+                <div class="parrafo-2">
                     <p>{{persona.acercaDe}}</p>
                 </div>
 

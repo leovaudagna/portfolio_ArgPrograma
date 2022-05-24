@@ -1,6 +1,6 @@
 <div class="fondo-soft">
     <div>
-        <h2>Soft Skills</h2>
+        <h2 style="padding-left: 25px;">Soft Skills</h2>
     </div>
 
     <div class="container">
@@ -22,6 +22,10 @@
                 </a>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="listaSoftSkills?.length == 0" class="text-center" style="margin-top: 30px;">
+        <h5> No hay soft-skills registradas hasta el momento</h5>
     </div>
 
     <div>
@@ -129,7 +133,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Estás seguro de eliminar el registro de educacion? {{eliminarSoftSkills?.nombreSSkill}}</p>
+                    <p>Estás seguro de eliminar "{{eliminarSoftSkills?.nombreSSkill}}" de tus Soft-Skills?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         <button (click)="onDeleteSoftSkills(eliminarSoftSkills!.id)" class="btn btn-danger"

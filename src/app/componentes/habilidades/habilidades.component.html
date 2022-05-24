@@ -9,7 +9,7 @@
                 <circle-progress [title]="hskill.nombreHSkill" [showSubtitle]="false" [imageSrc]="''"
                     [percent]="hskill.porcentajeHSkill" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
                     [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
-                    [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="false">
+                    [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="true">
                 </circle-progress>
                 <a (click)="onOpenModalH('edit', hskill)" data-target="#editHardSkillsModal"
                     class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
@@ -23,6 +23,12 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="listaHardSkills?.length == 0" class="text-center" style="margin-top: 30px;">
+        <h5> No hay hard-skills registradas hasta el momento</h5>
+    </div>
+
+    
 
     <div>
         <div class="text-center">
@@ -131,7 +137,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Estás seguro de eliminar el registro de educacion? {{eliminarHardSkills?.nombreHSkill}}</p>
+                    <p>Estás seguro de eliminar "{{eliminarHardSkills?.nombreHSkill}}" de tus Hard-Skills?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         <button (click)="onDeleteHardSkills(eliminarHardSkills!.id)" class="btn btn-danger"

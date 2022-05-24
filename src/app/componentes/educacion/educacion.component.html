@@ -1,5 +1,5 @@
 <div class="fondo-educacion">
-    <h1>Educación</h1>
+    <h1 style="padding-left: 25px;">Educación</h1>
     <div class="lista-educacion" *ngFor="let educacion of listaEducacion">
         <div class="col text-end">
             <a
@@ -33,15 +33,21 @@
         </div>
     </div>
 
-    <div>
-        <div class="añadir text-center">
-            <button type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
-                <a class="nav-link" style="color:aliceblue"> Añadir educacion</a>
-               <span class="sr-only">(current)</span>
-            </button>
-        </div>
+    <div *ngIf="listaEducacion?.length == 0" class="text-center" style="margin-top: 30px;">
+        <h5> No hay experiencias educativas por el momento</h5>
     </div>
 
+    <div class="añadir text-center">
+        <button type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
+            <a class="nav-link" style="color:aliceblue"> Añadir educacion</a>
+           <span class="sr-only">(current)</span>
+        </button>
+    </div>
+
+</div>
+
+<div>
+    
 </div>
 
 <!-- Añadir Modal-->
@@ -162,7 +168,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>Estás seguro de eliminar el registro de educacion? {{eliminarEducacion?.titulo}}</p>
+            <p>Estás seguro de eliminar "{{eliminarEducacion?.titulo}}" de tus experiencias educativas? </p>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 <button (click)="onDeleteEducation(eliminarEducacion!.id)" class="btn btn-danger"

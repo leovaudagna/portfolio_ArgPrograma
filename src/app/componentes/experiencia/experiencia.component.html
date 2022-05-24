@@ -1,5 +1,5 @@
 <div class="fondo-experiencia">
-    <h1>Experiencia</h1>
+    <h1 style="padding-left: 40px;">Experiencia</h1>
     <div class="lista-experiencia" *ngFor="let experiencia of listaExperiencia">
         <div class="col text-end">
             <a
@@ -30,6 +30,10 @@
                 <p>{{experiencia.lugar}}</p>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="listaExperiencia?.length == 0" class="text-center" style="margin-top: 30px;">
+        <h5> No hay experiencias laborales por el momento</h5>
     </div>
 
     <div>
@@ -171,7 +175,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>Estas seguro de eliminar el registro: "{{eliminarExperiencia?.empresa}}" de tus experiencias?</p>
+            <p>Estas seguro de eliminar {{eliminarExperiencia?.empresa}} de tus experiencias laborales?</p>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 <button (click)="onDeleteExperiencia(eliminarExperiencia!.id)" class="btn btn-danger"
@@ -182,6 +186,3 @@
 </div>
 </div>
 
-<div *ngIf="listaExperiencia?.length == 0">
-    <h4> No hay experiencias hasta el momento</h4>
-</div>
