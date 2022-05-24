@@ -16,6 +16,13 @@
 
 }
 
+.ingreso {
+    text-decoration: none;
+    margin-top: 40px;
+    display: block;
+    text-align: center;
+}
+
 .form-floating {
     margin-top: 10px;
 }
