@@ -7,7 +7,7 @@
         <div class="row row-cols-3 soft-skills">
             <div *ngFor="let sskill of listaSoftSkills">
                 <circle-progress [title]="sskill.nombreSSkill" [showSubtitle]="false" [imageSrc]="''"
-                    [percent]="sskill.porcentajeSSkill" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
+                    [percent]="sskill.porcentajeSSkill" [subtitleFontSize]="'12'" [subtitle]="sskill.porcentajeSSkill.toString() + '%'" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
                     [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
                     [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="false">
                 </circle-progress>

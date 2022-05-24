@@ -6,10 +6,10 @@
     <div class="container">
         <div class="row row-cols-3 hard-skills">
             <div *ngFor="let hskill of listaHardSkills" class="habilidad-circulo">
-                <circle-progress [title]="hskill.nombreHSkill" [showSubtitle]="false" [imageSrc]="''"
-                    [percent]="hskill.porcentajeHSkill" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
+                <circle-progress [title]="hskill.nombreHSkill" [units]="''" [showSubtitle]="true" [imageSrc]="''"
+                    [percent]="hskill.porcentajeHSkill" [subtitleFontSize]="'12'" [subtitle]="hskill.porcentajeHSkill.toString() + '%'" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"
                     [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
-                    [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="true">
+                    [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="false">
                 </circle-progress>
                 <a (click)="onOpenModalH('edit', hskill)" data-target="#editHardSkillsModal"
                     class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
