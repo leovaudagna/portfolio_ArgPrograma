@@ -11,8 +11,12 @@
     color: #EBF0F2;
 }
 
-.fa {
-    color: #5C6F73 ;
+.btn-primary-tooltips {
+    color: black;
+}
+
+.btn-secondary-tooltip {
+    color:black;
 }
 
 .hard-skills {

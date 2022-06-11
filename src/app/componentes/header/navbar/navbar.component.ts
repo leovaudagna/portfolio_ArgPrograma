@@ -1,8 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginUsuario } from 'src/app/models/login-usuario';
 import { Redes } from 'src/app/models/redes';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { HeaderService } from 'src/app/servicios/header.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,12 +21,106 @@ export class NavbarComponent implements OnInit {
   public editarRedes: Redes | undefined;
   public eliminarRedes: Redes | undefined;
 
+  // Tutorial LuigiCode
+  isLogged = false;
 
-  constructor(private redesService: HeaderService) { }
+  // Modal 
+  title = 'bootstrap-popup';
+  loginForm!: FormGroup;
+
+  //PRUEBAS
+  // isLogged = false;
+  isLoginFail = false;
+  loginUsuario!: LoginUsuario;
+
+  nombreUsuario!: string;
+  password!: string;
+
+  isAdmin = false;
+
+  roles: string[] = [];
+
+  errMsj!: string;
+
+
+  constructor(
+    private redesService: HeaderService, 
+    private tokenService: TokenService,
+
+    //PRUEBAS
+    private authService: AuthService,
+    private router: Router
+    
+  ) { }
 
 
   ngOnInit(): void {
     this.getRedes();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    })
+
+    // Modal
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    })
+
+    //PRUEBAS
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
+  }
+
+  get emailField(): any {
+    return this.loginForm.get('email');
+  }
+  get passwordField(): any {
+    return this.loginForm.get('password');
+  }
+  loginFormSubmit(): void {
+    console.log(this.loginForm.value);
+    // Call Api
+  }
+
+  //PRUEBAS
+  onLogin(): void {
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.authService.login(this.loginUsuario).subscribe(
+      data => {
+        this.isLogged = true;
+        this.isLoginFail = false;
+        
+        this.tokenService.setToken(data.token!);
+        this.tokenService.setUserName(data.nombreUsuario);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        window.location.reload();
+      },
+      err => {
+        this.isLogged = false;
+        this.isLoginFail = true;
+        this.errMsj = err.error.mensaje;
+        // console.log(err.error.message);
+      }      
+    );
+  }
+
+  onLogOut(): void {
+    this.tokenService.logOut();
+    // window.location.reload();
+    this.router.navigate(['/']);
   }
 
   public getRedes(): void {
@@ -100,6 +198,8 @@ export class NavbarComponent implements OnInit {
         this.getRedes();
       }
   })
-}
+  }
+
+
 
 }

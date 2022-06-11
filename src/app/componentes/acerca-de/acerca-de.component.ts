@@ -3,6 +3,7 @@ import { AcercaDeService } from 'src/app/servicios/acerca-de.service';
 import { Persona } from 'src/app/models/persona';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -14,11 +15,24 @@ export class AcercaDeComponent implements OnInit {
 
   public persona: Persona | undefined;
   public editarPersona: Persona | undefined;
+  
+  isAdmin = false;
+  roles: string[] = [];
+  
 
-  constructor(private personaService: AcercaDeService) { }
+  constructor(
+    private personaService: AcercaDeService,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
     this.getPersona();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });    
   }
 
   public getPersona():void {

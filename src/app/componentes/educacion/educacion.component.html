@@ -3,7 +3,7 @@
     <div class="lista-educacion" *ngFor="let educacion of listaEducacion">
         <div class="col text-end">
             <a
-                (click)="onOpenModal('edit', educacion)"
+                *ngIf="isAdmin" (click)="onOpenModal('edit', educacion)"
                 data-target="#editEducationModal"
                 class="btn btn-primary-tooltips"
                 data-placement="top"
@@ -12,7 +12,7 @@
             ><i class="fa fa-pencil"></i>        
             </a>
             <a
-                (click)="onOpenModal('delete', educacion)"
+                *ngIf="isAdmin"(click)="onOpenModal('delete', educacion)"
                 data-target="#deleteEducationModal"
                 class="btn btn-secondary-tooltip"
                 data-placement="top"
@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-3" >
-                <img class="educacion-logo" src="{{educacion.logoUrl}}">
+                <img class="educacion-logo" src="{{educacion.logoUrl}}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e8/Education%2C_Studying%2C_University%2C_Alumni_-_icon.png'">
             </div>
             <div class="col-md-auto educacion-texto">
                 <h3>{{educacion.titulo}}</h3>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="añadir text-center">
-        <button type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
+        <button *ngIf="isAdmin" type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
             <a class="nav-link" style="color:aliceblue"> Añadir educacion</a>
            <span class="sr-only">(current)</span>
         </button>

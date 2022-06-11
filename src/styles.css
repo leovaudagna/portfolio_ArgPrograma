@@ -3,11 +3,11 @@
 
 * {
     font-family: 'Encode Sans', sans-serif;
+    border: none !important;
 }
 
 html, body { 
-    margin: 0;
-    padding: 0;
+    
     height: 100%;
 }
 

@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SoftSkills } from 'src/app/models/softskills';
 import { SoftSkillsService } from 'src/app/servicios/soft-skills.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-soft-skills',
@@ -15,10 +17,21 @@ export class SoftSkillsComponent implements OnInit {
   public editarSoftSkills: SoftSkills | undefined;
   public eliminarSoftSkills: SoftSkills | undefined;
 
-  constructor(private softskillsService: SoftSkillsService) { }
+  isAdmin = false;
 
-  ngOnInit(): void {    
+  roles: string[] = [];
+
+  constructor(private softskillsService: SoftSkillsService, private tokenService: TokenService) { }
+
+  ngOnInit(): void {
     this.getSoftSkills();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    })
   }
 
   public getSoftSkills(): void {
@@ -35,11 +48,11 @@ export class SoftSkillsComponent implements OnInit {
   public onOpenModalS(mode: String, softskills?: SoftSkills): void {
     let container = document.getElementById('main-container');
     let button = document.createElement('button');
-  
+
     button.style.display = 'none';
-  
+
     button.setAttribute('data-toggle', 'modal');
-  
+
     if (mode === 'add') {
       button.setAttribute('data-target', '#addSoftSkillsModal');
     } else if (mode === 'delete') {
@@ -49,11 +62,11 @@ export class SoftSkillsComponent implements OnInit {
       this.editarSoftSkills = softskills;
       button.setAttribute('data-target', '#editSoftSkillsModal')
     }
-  
+
     container?.appendChild(button);
     button.click();
   }
-  
+
   public onAddSoftSkills(addFormS: NgForm) {
     document.getElementById('add-softskills-form')?.click();
     this.softskillsService.addSoftSkills(addFormS.value).subscribe({
@@ -68,7 +81,7 @@ export class SoftSkillsComponent implements OnInit {
       }
     })
   }
-  
+
   public onUpdateSoftSkills(softskills: SoftSkills) {
     this.editarSoftSkills = softskills;
     document.getElementById('add-softskills-form')?.click();
@@ -83,7 +96,7 @@ export class SoftSkillsComponent implements OnInit {
       }
     })
   }
-  
+
   public onDeleteSoftSkills(ids: number): void {
     this.softskillsService.deleteSoftSkills(ids).subscribe({
       next: (response: void) => {
@@ -94,7 +107,7 @@ export class SoftSkillsComponent implements OnInit {
         alert(error.message);
         this.getSoftSkills();
       }
-  })
+    })
   }
 
 }

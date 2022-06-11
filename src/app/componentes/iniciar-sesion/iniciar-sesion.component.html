@@ -1,31 +1,32 @@
 <div class="sesion-component">
 
 
-<div class="iniciar-sesion">
-  <form>
-    <div class="holis">
-      <img class="mb-4" src="../../../assets/img/argen-programa-logo.png" alt="" width="72" height="57">
-      <span class="texto">Argentina Programa</span>
-      <!-- <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1> -->
-    </div>
-    <div class="form-floating">
-      <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="Correo electrónico">
-      <label for="floatingInput">Correo electrónico</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Contraseña</label>      
-    </div>
-
-    <!-- <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div> -->
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
-    <a href="/portfolio" class="ingreso">Ingresar a mi portfolio</a>
-    <p class="mt-5 mb-3 text-muted" style="text-align: center;">Leonardo Vaudagna - 2021</p>
-  </form>
-</div>
+  <div class="iniciar-sesion">
+    <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
+      <form #f="ngForm" (ngSubmit)="onLogin()">
+        <div class="holis">
+          <img class="mb-4" src="../../../assets/img/argen-programa-logo.png" alt="" width="72" height="57">
+          <span class="texto">Argentina Programa</span>
+        </div>
+        <!-- <div class="form-floating"> -->
+        <!-- <label for="nombreUsuario"></label> -->
+        <div class="form-group">
+          <input placeholder="Usuario" type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
+            [(ngModel)]="nombreUsuario" required>
+        </div>
+        <!-- </div>
+        <div class="form-floating"> -->
+        <!-- <label for="password"></label> -->
+        <div class="form-group">
+          <input placeholder="Contraseña" type="password" name="password" id="password" class="form-control"
+            [(ngModel)]="password" required>
+          <!-- </div> -->
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" [disabled]="!f.valid">Iniciar sesión</button>
+        <a routerLink="/portfolio" class="ingreso">Ingresar a mi portfolio</a>
+        <p class="mt-5 mb-3 text-muted" style="text-align: center;">Leonardo Vaudagna - 2021</p>
+      </form>
+    </form>
+  </div>
 
 </div>

@@ -11,10 +11,6 @@
 }
 
 .btn-primary-tooltips {
-    color: #313E40;
-}
-
-.acerca-de:hover .btn-primary-tooltips {
     color: black;
 }
 

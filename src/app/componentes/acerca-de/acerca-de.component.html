@@ -1,12 +1,12 @@
 <div class="container-fluid acerca-de">
     <div class="row" *ngIf="persona">
         <div class="col-md-6 col-sd-12">
-            <img src="{{persona.urlFoto}}" alt="foto de perfil" class="img-fluid" id="foto-perfil">
+            <img src="{{persona.urlFoto}}" onerror="this.src='https://help.prusa3d.com/img/avatar.jpg'" alt="foto de perfil" class="img-fluid" id="foto-perfil">
         </div>
         <div class="col-md-6 col-sd-12">
             <div class="texto-portada">
                 <h2>Acerca de mí
-                    <a (click)="onOpenModal('edit', persona)" data-target="#editPersonaModal"
+                    <a *ngIf="isAdmin" (click)="onOpenModal('edit', persona)" data-target="#editPersonaModal"
                         class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
                         data-original-title="Edit"><i class="fa fa-pencil"></i>
                     </a>

@@ -1,29 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginUsuario } from 'src/app/models/login-usuario';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { TokenService } from 'src/app/servicios/token.service';
+import { LoginUsuario } from '../models/login-usuario';
+import { AuthService } from '../servicios/auth.service';
+import { TokenService } from '../servicios/token.service';
 
 @Component({
-  selector: 'app-iniciar-sesion',
-  templateUrl: './iniciar-sesion.component.html',
-  styleUrls: ['./iniciar-sesion.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class IniciarSesionComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-  isLogged = false;
-  isLoginFail = false;
-  loginUsuario!: LoginUsuario;
+isLogged = false;
+isLoginFail = false;
+loginUsuario!: LoginUsuario;
 
-  loginForm!: FormGroup;
+nombreUsuario!: string;
+password!: string;
 
-  nombreUsuario!: string;
-  password!: string;
+roles: string[] = [];
 
-  roles: string[] = [];
+errMsj!: string;
 
-  errMsj!: string;
 
   constructor(
     private tokenService: TokenService,
@@ -39,17 +37,6 @@ export class IniciarSesionComponent implements OnInit {
     }
   }
 
-  get emailField(): any {
-    return this.loginForm.get('email');
-  }
-  get passwordField(): any {
-    return this.loginForm.get('password');
-  }
-  loginFormSubmit(): void {
-    console.log(this.loginForm.value);
-    // Call Api
-  }
-
   onLogin(): void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(
@@ -61,8 +48,6 @@ export class IniciarSesionComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        
-        this.router.navigate(['/portfolio']);
       },
       err => {
         this.isLogged = false;

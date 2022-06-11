@@ -1,0 +1,20 @@
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+    <h2>Ya has iniciado sesión</h2>
+</div>
+
+<ng-template #loggedOut>
+    <div class="container d-flex justify-content-center">
+        <div class="card">
+            <div class="card-header"></div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/login">Iniciar Sesion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active"routerLink="/registro">Crear cuenta</a>
+                </li>
+              </ul>
+            
+        </div>
+    </div>
+</ng-template>

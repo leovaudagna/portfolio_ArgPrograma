@@ -18,6 +18,10 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SoftSkillsComponent } from './componentes/soft-skills/soft-skills.component';
 import { NavbarComponent } from './componentes/header/navbar/navbar.component';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import { MenuComponent } from './componentes/menu/menu.component';
+import { interceptorProvider } from './interceptores/prod-interceptor.service';
 
 
 @NgModule({
@@ -33,7 +37,10 @@ import { NavbarComponent } from './componentes/header/navbar/navbar.component';
     FooterComponent,
     HabilidadesComponent,
     SoftSkillsComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    RegistroComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ import { NavbarComponent } from './componentes/header/navbar/navbar.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
   schemas:[]
 })

@@ -3,6 +3,7 @@ import { HardSkills } from 'src/app/models/hardskills';
 import { HabilidadesService } from 'src/app/servicios/habilidades.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-habilidades',
@@ -17,10 +18,21 @@ export class HabilidadesComponent implements OnInit {
   public editarHardSkills: HardSkills | undefined;
   public eliminarHardSkills: HardSkills | undefined;
 
-  constructor(private hardskillsService: HabilidadesService) { }
+  isAdmin = false;
+
+roles: string[] = [];
+
+  constructor(private hardskillsService: HabilidadesService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getHardSkills();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    })
   }
 
   public getHardSkills(): void {

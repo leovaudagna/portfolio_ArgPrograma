@@ -11,11 +11,11 @@
                     [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'" [animation]="true"
                     [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'" [showUnits]="false">
                 </circle-progress>
-                <a (click)="onOpenModalH('edit', hskill)" data-target="#editHardSkillsModal"
+                <a *ngIf="isAdmin" (click)="onOpenModalH('edit', hskill)" data-target="#editHardSkillsModal"
                     class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
                     data-original-title="Edit"><i class="fa fa-pencil"></i>
                 </a>
-                <a (click)="onOpenModalH('delete', hskill)" data-target="#deleteHardSkillsModal"
+                <a *ngIf="isAdmin" (click)="onOpenModalH('delete', hskill)" data-target="#deleteHardSkillsModal"
                     class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal"
                     data-original-title="Delete">
                     <i class="fa fa-times"></i>
@@ -32,7 +32,7 @@
 
     <div>
         <div class="text-center">
-            <button type="button" class="btn btn-dark" data-target="#addHardSkillModal" data-toggle="modal"
+            <button *ngIf="isAdmin" type="button" class="btn btn-dark" data-target="#addHardSkillModal" data-toggle="modal"
                 (click)="onOpenModalH('add')">
                 <a class="nav-link" style="color:aliceblue">Añadir Hard-Skill</a>
                <span class="sr-only">(current)</span>

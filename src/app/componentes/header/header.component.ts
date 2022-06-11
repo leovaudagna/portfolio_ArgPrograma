@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/persona';
 import { AcercaDeService } from 'src/app/servicios/acerca-de.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -14,10 +15,21 @@ export class HeaderComponent implements OnInit {
   public persona: Persona | undefined;
   public editarPersona: Persona | undefined;
 
-  constructor(private personaService: AcercaDeService) { }
+  isAdmin = false;
+
+  roles: string[] = [];
+
+  constructor(private personaService: AcercaDeService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getPersona();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    })
   }
 
   public getPersona(): void {

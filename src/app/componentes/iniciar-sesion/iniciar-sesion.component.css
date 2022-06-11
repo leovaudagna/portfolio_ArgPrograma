@@ -53,3 +53,12 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.form-group {
+    margin: 20px;
+}
+
+.form-control {
+    height: 50px;
+}
+

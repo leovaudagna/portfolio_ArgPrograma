@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Proyectos } from 'src/app/models/proyectos';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -15,10 +16,22 @@ export class ProyectosComponent implements OnInit {
   public editarProyectos: Proyectos | undefined;
   public eliminarProyectos: Proyectos | undefined;
 
-  constructor(private proyectosService: ProyectosService) { }
+  isAdmin = false;
+
+  roles: string[] = [];
+
+
+  constructor(private proyectosService: ProyectosService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getProyectos();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    })
   }
 
   public getProyectos(): void {
@@ -32,9 +45,9 @@ export class ProyectosComponent implements OnInit {
     })
   }
 
-  
 
-  
+
+
 
 
   public onOpenModal(mode: String, proyectos?: Proyectos): void {
@@ -99,6 +112,6 @@ export class ProyectosComponent implements OnInit {
         alert(error.message);
         this.getProyectos();
       }
-  })
-}
+    })
+  }
 }

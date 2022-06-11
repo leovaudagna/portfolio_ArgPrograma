@@ -11,8 +11,12 @@
     color: #EBF0F2;
 }
 
-.fa {
-    color: #D9D9D9;
+.btn-primary-tooltips {
+    color: black;
+}
+
+.btn-secondary-tooltip {
+    color:black;
 }
 
 .prueba {

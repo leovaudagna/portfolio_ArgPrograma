@@ -24,12 +24,13 @@
 }
 
 .btn-primary-tooltips {
-    color: #5C6F73;
-}
-
-.portada-img:hover .btn-primary-tooltips {
     color: black;
 }
+
+.btn-secondary-tooltip {
+    color:black;
+}
+
 
 .texto-portada {
     color: #EBF0F2;
