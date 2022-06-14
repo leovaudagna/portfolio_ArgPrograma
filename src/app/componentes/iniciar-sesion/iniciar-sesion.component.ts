@@ -12,7 +12,6 @@ import { TokenService } from 'src/app/servicios/token.service';
 })
 export class IniciarSesionComponent implements OnInit {
 
-  isLogged = false;
   isLoginFail = false;
   loginUsuario!: LoginUsuario;
 
@@ -32,11 +31,11 @@ export class IniciarSesionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities();
-    }
+    // if (this.tokenService.getToken()) {
+    //   this.isLogged = true;
+    //   this.isLoginFail = false;
+    //   this.roles = this.tokenService.getAuthorities();
+    // }
   }
 
   get emailField(): any {
@@ -54,18 +53,14 @@ export class IniciarSesionComponent implements OnInit {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(
       data => {
-        this.isLogged = true;
+
         this.isLoginFail = false;
         
         this.tokenService.setToken(data.token!);
-        this.tokenService.setUserName(data.nombreUsuario);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
         
         this.router.navigate(['/portfolio']);
       },
       err => {
-        this.isLogged = false;
         this.isLoginFail = true;
         this.errMsj = err.error.mensaje;
         // console.log(err.error.message);

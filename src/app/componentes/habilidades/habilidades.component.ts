@@ -26,13 +26,7 @@ roles: string[] = [];
 
   ngOnInit(): void {
     this.getHardSkills();
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    })
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   public getHardSkills(): void {

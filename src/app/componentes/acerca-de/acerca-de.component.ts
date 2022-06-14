@@ -17,8 +17,7 @@ export class AcercaDeComponent implements OnInit {
   public editarPersona: Persona | undefined;
   
   isAdmin = false;
-  roles: string[] = [];
-  
+ 
 
   constructor(
     private personaService: AcercaDeService,
@@ -27,12 +26,8 @@ export class AcercaDeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPersona();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });    
+    this.isAdmin = this.tokenService.isAdmin();
+
   }
 
   public getPersona():void {

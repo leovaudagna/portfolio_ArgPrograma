@@ -41,7 +41,13 @@
                 </div>
             </li>
             <li *ngIf="!isLogged">
-                <button type="button" class="btn btn-dark" style="margin-left: 10px;" data-toggle="modal" data-target="#loginModal">Iniciar sesión</button>
+                <button 
+                type="button" 
+                class="btn btn-dark" 
+                style="margin-left: 10px;"
+                routerLink="/iniciar-sesion"               
+                >Iniciar sesión</button>
+                <!-- data-toggle="modal" data-target="#loginModal" -->
             </li>
             <li *ngIf="isLogged">
                 <button type="button" class="btn btn-dark" style="margin-left: 10px;" (click)="onLogOut()">Cerrar sesión</button>
@@ -197,7 +203,9 @@
 
 <!-- Modal Login -->
 
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<!-- MODAL DE LOGIN. NO BORRAR POR LAS DUDAS. POR EL MOMENTO PREFIERO QUE REDIRECCIONE A /INICIAR_SESION -->
+
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -220,27 +228,8 @@
                     <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Iniciar Sesion</button>
                 </div>
             </form>
-            <!-- <div class="mb-3">
-              <label for="id_email" class="form-label">Email address</label>
-              <input formControlName="email" [class.is-invalid]="emailField.touched && emailField.invalid" type="email"
-                class="form-control" id="id_email">
-              <div *ngIf="emailField.touched && emailField.hasError('required')" class="d-block invalid-feedback">Please
-                provide a Email.</div>
-              <div *ngIf="emailField.touched && emailField.hasError('email')" class="d-block invalid-feedback">Email
-                address is
-                not valid</div>
-            </div>
-            <div class="mb-3">
-              <label for="id_Password" class="form-label">Password</label>
-              <input formControlName="password" [class.is-invalid]="passwordField.touched && passwordField.invalid"
-                type="password" class="form-control" id="id_Password">
-              <div *ngIf="passwordField.touched && passwordField.hasError('required')" class="d-block invalid-feedback">
-                Please
-                provide a Password.</div>
-            </div>
-            <button [disabled]="loginForm.invalid" type="submit" class=" mt-3 btn btn-primary w-100">Submit</button> -->
           </form>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->

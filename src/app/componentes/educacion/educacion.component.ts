@@ -24,13 +24,7 @@ export class EducacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEducacion();
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    })
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   public getEducacion(): void {

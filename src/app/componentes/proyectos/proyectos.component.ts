@@ -25,13 +25,7 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProyectos();
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    })
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   public getProyectos(): void {

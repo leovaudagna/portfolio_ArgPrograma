@@ -23,13 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPersona();
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    })
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   public getPersona(): void {

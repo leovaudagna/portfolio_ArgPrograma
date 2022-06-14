@@ -56,18 +56,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRedes();
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    })
+    this.isAdmin = this.tokenService.isAdmin();
 
     // Modal
     this.loginForm = new FormGroup({
@@ -79,7 +68,7 @@ export class NavbarComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities();
+      // this.roles = this.tokenService.getAuthorities();
     }
   }
 
@@ -103,9 +92,9 @@ export class NavbarComponent implements OnInit {
         this.isLoginFail = false;
         
         this.tokenService.setToken(data.token!);
-        this.tokenService.setUserName(data.nombreUsuario);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
+        // this.tokenService.setUserName(data.nombreUsuario);
+        // this.tokenService.setAuthorities(data.authorities);
+        // this.roles = data.authorities;
         window.location.reload();
       },
       err => {
