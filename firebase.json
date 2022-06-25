@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "argentinaprograma-leovaudagna",
     "public": "dist/proyecto-final",
     "ignore": [
       "firebase.json",
