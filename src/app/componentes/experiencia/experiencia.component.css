@@ -19,6 +19,13 @@
     color:black;
 }
 
+@media (max-width: 767px){
+    .lista-experiencia {
+        align-content: center;
+        display: flexbox;
+        text-align: center;
+    }
+}
 
 
 

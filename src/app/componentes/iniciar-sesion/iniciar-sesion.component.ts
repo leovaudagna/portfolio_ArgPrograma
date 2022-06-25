@@ -46,7 +46,6 @@ export class IniciarSesionComponent implements OnInit {
   }
   loginFormSubmit(): void {
     console.log(this.loginForm.value);
-    // Call Api
   }
 
   onLogin(): void {
@@ -63,7 +62,7 @@ export class IniciarSesionComponent implements OnInit {
       err => {
         this.isLoginFail = true;
         this.errMsj = err.error.mensaje;
-        // console.log(err.error.message);
+        console.log(err.error.message);
       }      
     );
   }

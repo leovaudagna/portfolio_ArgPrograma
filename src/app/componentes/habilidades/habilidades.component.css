@@ -6,7 +6,9 @@
 
 .fondo-habilidades {
     padding-top: 100px;
-    padding-bottom: 50px;    
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: #313E40;
     color: #EBF0F2;
 }

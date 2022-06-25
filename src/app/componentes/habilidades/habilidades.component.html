@@ -4,7 +4,7 @@
     </div>
 
     <div class="container">
-        <div class="row row-cols-3 hard-skills">
+        <div class="row row-cols-lg-3 row-cols-md-2 hard-skills">
             <div *ngFor="let hskill of listaHardSkills" class="habilidad-circulo">
                 <circle-progress [title]="hskill.nombreHSkill" [units]="''" [showSubtitle]="true" [imageSrc]="''"
                     [percent]="hskill.porcentajeHSkill" [subtitleFontSize]="'12'" [subtitle]="hskill.porcentajeHSkill.toString() + '%'" [radius]="80" [outerStrokeWidth]="10" [innerStrokeWidth]="8"

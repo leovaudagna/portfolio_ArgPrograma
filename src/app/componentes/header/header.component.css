@@ -12,6 +12,12 @@
     width: 100%;
 }
 
+.comenzar {
+    margin-top: 150px;
+    display: block;
+    text-align: center;
+}
+
 .navbar-custom {
     background-color: #EBF0F2;
     color: white;

@@ -1,32 +1,35 @@
-<div class="sesion-component">
+<div class="fondo-iniciar-sesion">
 
+  <div>
+    <div class="iniciar-sesion">
+      <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
+        <form #f="ngForm" (ngSubmit)="onLogin()">
+          <div class="holis">
+            <img class="mb-4" src="../../../assets/img/argen-programa-logo.png" alt="" width="72" height="57">
+            <span>Argentina Programa</span>
+          </div>
+          <div class="form-group">
+            <input placeholder="Usuario" type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
+              [(ngModel)]="nombreUsuario" required>
+          </div>
+          <div class="form-group">
+            <input placeholder="Contraseña" type="password" name="password" id="password" class="form-control"
+              [(ngModel)]="password" required>
+          </div>
+          <div *ngIf="f.submitted && isLoginFail" class="error-login">
+            <p class="alert">Usuario o contraseña incorrecta</p>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" [disabled]="!f.valid">Iniciar sesión</button>
 
-  <div class="iniciar-sesion">
-    <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
-      <form #f="ngForm" (ngSubmit)="onLogin()">
-        <div class="holis">
-          <img class="mb-4" src="../../../assets/img/argen-programa-logo.png" alt="" width="72" height="57">
-          <span class="texto">Argentina Programa</span>
-        </div>
-        <!-- <div class="form-floating"> -->
-        <!-- <label for="nombreUsuario"></label> -->
-        <div class="form-group">
-          <input placeholder="Usuario" type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
-            [(ngModel)]="nombreUsuario" required>
-        </div>
-        <!-- </div>
-        <div class="form-floating"> -->
-        <!-- <label for="password"></label> -->
-        <div class="form-group">
-          <input placeholder="Contraseña" type="password" name="password" id="password" class="form-control"
-            [(ngModel)]="password" required>
-          <!-- </div> -->
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" [disabled]="!f.valid">Iniciar sesión</button>
-        <a routerLink="/portfolio" class="ingreso">Ingresar a mi portfolio</a>
-        <p class="mt-5 mb-3 text-muted" style="text-align: center;">Leonardo Vaudagna - 2021</p>
+        </form>
       </form>
-    </form>
-  </div>
+    </div>
 
-</div>
+    <div class="footer">
+
+      <button routerLink="/portfolio" class="btn mt-5 pb-3 ingreso">Ingresar a mi portfolio</button>
+      <p class="mt-5 mb-3 text-muted">Leonardo Vaudagna - 2022</p>
+
+
+    </div>
+  </div>

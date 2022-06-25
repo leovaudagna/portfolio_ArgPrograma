@@ -1,8 +1,7 @@
-.sesion-component {
-    display: flex;
+.fondo-iniciar-sesion {
     padding-top: 200px;
     padding-bottom: 40px;
-    background-color: #f5f5f5;
+    background-color: white;
 }
 
 .holis {
@@ -10,24 +9,12 @@
     font-size: 200%;
 }
 
-.texto {
-    
-    text-align: center;
-
-}
-
-.ingreso {
-    text-decoration: none;
-    margin-top: 40px;
-    display: block;
-    text-align: center;
-}
 
 .form-floating {
     margin-top: 10px;
 }
 
-.iniciar-sesion {
+.iniciar-sesion {    
     width: 100%;
     max-width: 400px;
     padding: 15px;
@@ -60,5 +47,14 @@
 
 .form-control {
     height: 50px;
+}
+
+.error-login {
+    text-align: center;
+    color: red;
+}
+
+.footer {
+    text-align: center;
 }
 

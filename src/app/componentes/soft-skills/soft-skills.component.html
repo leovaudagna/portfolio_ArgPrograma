@@ -4,7 +4,7 @@
     </div>
 
     <div class="container">
-        <div class="row row-cols-3 soft-skills">
+        <div class="row row-cols-lg-3 row-cols-md-2 soft-skills">
             <div *ngFor="let sskill of listaSoftSkills">
                 <circle-progress [title]="sskill.nombreSSkill" [units]="''" [showSubtitle]="true" [imageSrc]="''"
                     [percent]="sskill.porcentajeSSkill" [subtitleFontSize]="'12'"

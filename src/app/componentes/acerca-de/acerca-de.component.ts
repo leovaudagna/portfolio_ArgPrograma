@@ -41,6 +41,21 @@ export class AcercaDeComponent implements OnInit {
     })
   }
 
+  // public crearPersona(persona: Persona) {
+  //   this.editarPersona = persona;
+  //   document.getElementById('add-persona-form')?.click();
+  //   this.personaService.crearPersona(persona).subscribe({
+  //     next: (response: Persona) => {
+  //       console.log(response);
+  //       this.getPersona();
+  //     },
+  //     error: (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //       this.getPersona();
+  //     }
+  //   })
+  // }
+
   public onOpenModal(mode: String, persona?: Persona): void {
     let container = document.getElementById('main-container');
     let button = document.createElement('button');
@@ -60,20 +75,7 @@ export class AcercaDeComponent implements OnInit {
     button.click();
   }
 
-  // public onAddEPersona(addForm: NgForm) {
-  //   document.getElementById('add-persona-form')?.click();
-  //   this.personaService.addPersona(addForm.value).subscribe({
-  //     next: (response: Persona) => {
-  //       console.log(response);
-  //       this.getPersona();
-  //       addForm.resetForm();
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       alert(error.message)
-  //       this.getPersona();
-  //     }
-  //   })
-  // }
+
 
   public onUpdatePersona(persona: Persona) {
     this.editarPersona = persona;
@@ -81,7 +83,7 @@ export class AcercaDeComponent implements OnInit {
     this.personaService.updatePersona(persona).subscribe({
       next: (response: Persona) => {
         console.log(response);
-        this.getPersona();
+        this.getPersona();        
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

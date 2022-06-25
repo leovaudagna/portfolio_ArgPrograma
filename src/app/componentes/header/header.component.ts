@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/models/persona';
 import { AcercaDeService } from 'src/app/servicios/acerca-de.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -56,20 +57,21 @@ export class HeaderComponent implements OnInit {
     button.click();
   }
 
-  // public onAddEPersona(addForm: NgForm) {
-  //   document.getElementById('add-persona-form')?.click();
-  //   this.personaService.addPersona(addForm.value).subscribe({
-  //     next: (response: Persona) => {
-  //       console.log(response);
-  //       this.getPersona();
-  //       addForm.resetForm();
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       alert(error.message)
-  //       this.getPersona();
-  //     }
-  //   })
-  // }
+  public onAddPersona(addForm: NgForm) {
+    document.getElementById('add-persona-form')?.click();
+    this.personaService.addPersona(addForm.value).subscribe({
+      next: (response: Persona) => {
+        console.log(response);
+        this.getPersona();
+        addForm.resetForm();
+        window.location.reload();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message)
+        this.getPersona();        
+      }
+    })
+  }
 
   public onUpdatePersona(persona: Persona) {
     this.editarPersona = persona;
@@ -78,6 +80,7 @@ export class HeaderComponent implements OnInit {
       next: (response: Persona) => {
         console.log(response);
         this.getPersona();
+        window.location.reload();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

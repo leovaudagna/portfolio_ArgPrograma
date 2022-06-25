@@ -153,6 +153,7 @@ export class NavbarComponent implements OnInit {
         console.log(response);
         this.getRedes();
         addForm.resetForm();
+        window.location.reload();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message)
@@ -172,6 +173,7 @@ export class NavbarComponent implements OnInit {
       error: (error: HttpErrorResponse) => {
         alert(error.message);
         this.getRedes();
+        window.location.reload();
       }
     })
   }

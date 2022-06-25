@@ -12,6 +12,10 @@ export class AcercaDeService {
   private apiServerUrl = environment.apiBaseUrl;
   
   constructor(private http: HttpClient) { }
+  
+  public addPersona(persona: Persona): Observable<Persona> {
+    return this.http.post<Persona>(`${this.apiServerUrl}edicion/persona/nueva`, persona);
+  }
 
   public getPersona():Observable<Persona>{
      return this.http.get<Persona>(`${this.apiServerUrl}edicion/persona/buscar/1`);

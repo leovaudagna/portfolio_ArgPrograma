@@ -20,7 +20,6 @@ import { SoftSkillsComponent } from './componentes/soft-skills/soft-skills.compo
 import { NavbarComponent } from './componentes/header/navbar/navbar.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
-import { MenuComponent } from './componentes/menu/menu.component';
 import { interceptorProvider } from './interceptores/prod-interceptor.service';
 
 
@@ -39,8 +38,7 @@ import { interceptorProvider } from './interceptores/prod-interceptor.service';
     SoftSkillsComponent,
     NavbarComponent,
     LoginComponent,
-    RegistroComponent,
-    MenuComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

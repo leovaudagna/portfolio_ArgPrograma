@@ -1,5 +1,5 @@
 <div class="fondo-proyectos">
-    <div>
+    <div class="lista-proyectos">
         <h1>Proyectos</h1>
         <div class="lista-proyectos" *ngFor="let proyecto of listaProyectos">
             <div class="col text-end">
@@ -14,13 +14,13 @@
                 </a>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-md-auto">
+                    <img class="proyecto-logo" src="{{proyecto.imgProy}}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/9/94/Deus_Computer.png'">
+                </div>
+                <div class="col-md-auto">
                     <h3>{{proyecto.nombreProy}}</h3>
                     <p>{{proyecto.descrProy}}</p>
-                    <p>{{proyecto.linkProy}}</p>
-                    <div class="col-2">
-                        <img class="proyecto-logo" src="{{proyecto.imgProy}}">
-                    </div>
+                    <a href="{{proyecto.linkProy}}">{{proyecto.linkProy}}</a>                    
                 </div>
             </div>
         </div>
@@ -76,8 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label for="imgProy">Imágen</label>
-                        <input type="text" ngModel name="imgProy" class="form-control" id="imgProy" placeholder="Imágen"
-                            required>
+                        <input type="text" ngModel name="imgProy" class="form-control" id="imgProy" placeholder="Imágen">
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="add-proyectos-form" class="btn btn-secondary"

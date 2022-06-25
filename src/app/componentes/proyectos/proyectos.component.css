@@ -6,9 +6,16 @@
 .fondo-proyectos {
     padding-top: 100px;
     padding-bottom: 100px;
-    padding-left: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: #5C6F73;
-    color: #EBF0F2;
+    color: #EBF0F2;   
+}
+
+.lista-proyectos {
+    padding-top: 20px;
+    margin-left: 25px;
+    margin-right: 20px;
 }
 
 .btn-primary-tooltips {
@@ -16,7 +23,7 @@
 }
 
 .btn-secondary-tooltip {
-    color:black;
+    color: black;
 }
 
 .prueba {
@@ -29,9 +36,39 @@
     text-align: center;
     line-height: 22px;
     margin: 50px;
-     
+
 }
 
 .nav-link {
-    padding:10px;
+    padding: 10px;
+}
+
+.proyecto-logo {
+    max-width: 150px;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 767px){
+    .lista-proyectos {
+        display: block;
+        text-align: center;
+    }
+
+    .proyecto-logo {
+        display: block;
+        text-align: center;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        
+        /* margin-left: 168%; */
+        padding-bottom: 20px;
+    }
 }
