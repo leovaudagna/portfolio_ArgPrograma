@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://argentinaprograma-leovaudagna.herokuapp.com/'
+
+  // COMENTADO PARA PRUEBAS
+  // apiBaseUrl: 'https://argentinaprograma-leovaudagna.herokuapp.com/'
+  apiBaseUrl: 'http://localhost:8080/'
 };
 
 /*
