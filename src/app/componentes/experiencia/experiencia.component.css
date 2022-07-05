@@ -3,23 +3,32 @@
     padding-bottom: 60px;
     padding-left: 30px;
     padding-right: 30px;
-    background-color: #D9D9D9;
-    color: #313E40;
+    /* background-color: #D9D9D9; */
+    /* color: #313E40; */
 }
 
-.lista-experiencia{
+.lista-experiencia {
+    margin: 45px;
     padding: 25px 20px;
+    /* border-style: outset;
+    border-color: linear-gradient(to bottom right, #22A2F2, #1B8EF2) */
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to top,
+        #22A2F2,
+            rgba(0, 0, 0, 0)) 0 15;
 }
 
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .btn-secondary-tooltip {
-    color:black;
+    color: #5CB9F2;
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
     .lista-experiencia {
         align-content: center;
         display: flexbox;
@@ -33,12 +42,13 @@
     margin-top: 30px;
 }
 
-.btn-dark {    
+.btn-dark {
     text-align: center;
-    line-height: 22px;  
-    margin: 20px;  
+    line-height: 22px;
+    margin: 20px;
+    background-color: #5CB9F2;
 }
 
 .nav-link {
-    padding:10px;
+    padding: 10px;
 }

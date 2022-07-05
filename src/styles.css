@@ -3,17 +3,27 @@
 
 * {
     font-family: 'Encode Sans', sans-serif;
-    border: none !important;
+    /* border: none !important; */
+}
+
+p {
+    font-weight: 200;
 }
 
 html, body { 
-    margin-left: 0;
+    /* margin-left: 0;
+    height: 100%; */
+    color: aliceblue;
+    background: linear-gradient(to bottom right, #1A2E40, #06080D);
     height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-body { 
-    margin: 0;
+body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    
 }
 
 .modal {

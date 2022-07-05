@@ -1,5 +1,6 @@
 <div class="fondo-experiencia">
     <h1 style="padding-left: 25px;">Experiencia</h1>
+    
     <div class="lista-experiencia" *ngFor="let experiencia of listaExperiencia">
         <div class="col text-end">
             <a *ngIf="isAdmin" (click)="onOpenModal('edit', experiencia)" data-target="#editExperienciaModal"
@@ -14,9 +15,9 @@
         <div class="row">
             <div class="col-md-auto">
                 <h3>{{experiencia.empresa}}</h3>
-                <p>{{experiencia.rubro}}</p>
+                <span style="color: #5CB9F2;">{{experiencia.rubro}}</span>
                 <p>{{experiencia.descripcion}}</p>
-                <span>{{experiencia.fechaInic}}</span><span> / </span><span>{{experiencia.fechaFin}}</span>
+                <span style="color: #5CB9F2;">{{experiencia.fechaInic}}</span><span> / </span><span style="color: #5CB9F2;">{{experiencia.fechaFin}}</span>
                 <p>{{experiencia.lugar}}</p>
             </div>
         </div>
@@ -30,7 +31,7 @@
         <div class="añadir text-center">
             <button *ngIf="isAdmin" type="button" class="btn btn-dark" data-target="#addExperienciaModal" data-toggle="modal"
                 (click)="onOpenModal('add')">
-                <a class="nav-link" style="color:aliceblue">Añadir experiencia</a>
+                <a class="nav-link" style="color:#06080D">Añadir experiencia</a>
                 <span class="sr-only">(current)</span>
             </button>
         </div>

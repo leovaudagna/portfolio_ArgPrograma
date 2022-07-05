@@ -1,4 +1,3 @@
-
 /* .fa {
     padding: 0px;
     font-size: 25px;
@@ -26,15 +25,15 @@
 .portada-img {
     padding-top: 100px;
     height: 400px;
-    background-color: #5C6F73;
+    /* background-color: #5C6F73; */
 }
 
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .btn-secondary-tooltip {
-    color:black;
+    color: black;
 }
 
 
@@ -44,7 +43,7 @@
     bottom: -200px;
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
     .texto-portada {
         position: relative;
         text-align: center;
@@ -58,4 +57,12 @@
     #img-header {
         position: relative;
     }
+}
+
+.linea {
+    border-style: solid;
+    border-radius: 1px;
+    /* border-image: linear-gradient(to right, #1A2E40, #06080D) 1 0; */
+    border-image: linear-gradient(to right, #22A2F2, transparent) 1 0;
+    width: 80%;
 }

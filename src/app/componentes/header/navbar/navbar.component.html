@@ -1,63 +1,67 @@
 <!-- NavBar. Agregar accesos de lado izquierdo. De lado derecho colocar boton para cambio de modo oscuro a claro-->
 
-<nav class="navbar navbar-expand-lg navbar-light position-absolute container-fluid" style="padding-left: 1%; padding-right: 2%; background-color: #D9D9D9; z-index: 1">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light position-absolute container-fluid"
+    style="padding-left: 1%; padding-right: 2%; z-index: 1">
     <span class="navbrand-bar">
-        <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank"><img src="./assets/img/argen-programa-logo.png" alt="" width="50"></a>
+        <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+            target="_blank"><img src="./assets/img/argen-programa-logo.png" alt="" width="50"></a>
         <span class="prueba">Argentina Programa</span>
     </span>
 
-    <button class="navbar-toggler ms-auto " type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler ms-auto " type="button" (click)="isMenuCollapsed = !isMenuCollapsed"
+        data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    
+
 
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNav">
 
         <ul class="navbar-nav ms-auto">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle prueba" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" style="padding-left: 10px">
+                <a class="nav-link dropdown-toggle prueba" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 10px">
                     Redes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <div *ngFor="let red of listaRedes">
-                        <a  class="dropdown-item" href="{{red.urlRed}}" target="_blank"><a *ngIf="isAdmin" (click)="onOpenModal('delete', red)" data-target="#deleteRedesModal"
-                            class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal" data-original-title="Delete">
-                            <i class="fa fa-times"></i>
-                        </a><a class="fa fa-{{red.nombreRed.toLowerCase()}} custom"></a>{{red.nombreRed}}
-                            
-                            <a *ngIf="isAdmin" (click)="onOpenModal('edit', red)" data-target="#editRedesModal" class="btn btn-primary-tooltips"
-                            data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil"></i>                           
+                        <a class="dropdown-item" href="{{red.urlRed}}" target="_blank"><a *ngIf="isAdmin"
+                                (click)="onOpenModal('delete', red)" data-target="#deleteRedesModal"
+                                class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal"
+                                data-original-title="Delete">
+                                <i class="fa fa-times"></i>
+                            </a><a id="redesIco"
+                                class="fa fa-{{red.nombreRed.toLowerCase()}} custom"></a><span id="redesText">{{red.nombreRed}}</span>
+
+                            <a *ngIf="isAdmin" (click)="onOpenModal('edit', red)" data-target="#editRedesModal"
+                                class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
+                                data-original-title="Edit"><i class="fa fa-pencil"></i>
+                            </a>
                         </a>
-                        </a>               
                     </div>
                     <div *ngIf="listaRedes?.length == 0" style="color: #292b2c;"><span>No hay nada por aquí</span></div>
                     <!-- <div class="dropdown-divider"></div> -->
-                    <a *ngIf="isAdmin" class="dropdown-item nav-link agregar" href="" data-target="#addRedesModal" data-toggle="modal"
-                        (click)="onOpenModal('add')" style="color: #D9D9D9;">Agregar redes</a>
+                    <a *ngIf="isAdmin" class="dropdown-item nav-link agregar" href="" data-target="#addRedesModal"
+                        data-toggle="modal" (click)="onOpenModal('add')" style="color: #D9D9D9;">Agregar redes</a>
                 </div>
             </li>
             <li *ngIf="!isLogged">
-                <button 
-                type="button" 
-                class="btn btn-dark" 
-                style="margin-left: 10px;"
-                routerLink="/iniciar-sesion"               
-                >Iniciar sesión</button>
+                <button type="button" class="btn btn-dark" style="margin-left: 10px;"
+                    routerLink="/iniciar-sesion">Iniciar sesión</button>
                 <!-- data-toggle="modal" data-target="#loginModal" -->
             </li>
             <li *ngIf="isLogged">
-                <button type="button" class="btn btn-dark" style="margin-left: 10px;" (click)="onLogOut()">Cerrar sesión</button>
+                <button type="button" class="btn btn-dark" style="margin-left: 10px;" (click)="onLogOut()">Cerrar
+                    sesión</button>
             </li>
 
-              
-             
 
-            
-            
+
+
+
+
             <!-- <li class="nav-item">
                 <a href="https://www.instagram.com/leonardovaudagna/" class="fa fa-instagram" width="50" (click)="isMenuCollapsed = true"></a>
 
@@ -76,19 +80,20 @@
             </li> -->
         </ul>
     </div>
-    
+
 
     <!-- Tutorial LUIGI CODE -->
 
 
-    
+
 </nav>
 
 
 
 <!-- Modal Agregar -->
 
-<div class="modal fade" id="addRedesModal" tabindex="-1" role="dialog" aria-labelledby="addRedesModalLabel" aria-hidden="true">
+<div class="modal fade" id="addRedesModal" tabindex="-1" role="dialog" aria-labelledby="addRedesModalLabel"
+    aria-hidden="true">
 
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -99,30 +104,34 @@
             </div>
             <div class="modal-body">
                 <form #addForm="ngForm" (ngSubmit)="onAddRedes(addForm)">
-                <div class="form-group">
-                    <label for="nombreRed">Red social</label>
-                    <!-- <input type="text" ngModel name="nombreRed" class="form-control" id="nombreRed" placeholder="Red social" required> -->
-                    <select ngModel name="nombreRed" class="form-select" id="nombreRed" placeholder="Red social" required>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Instagram">Instagram</option>
-                        <option value="Twitter">Twitter</option>
-                        <option value="YouTube">YouTube</option>
-                        <option value="GitHub">GitHub</option>
-                        <option value="LinkedIn">LinkedIn</option>
-                      </select>
-                </div>
-                <input type="hidden" ngModel="{{ editarRedes?.id }}" name="i" class="form-control"
-                            id="id" aria-describedby="emailHelp" placeholder="" />
-                <div class="form-group">
-                    <label for="urlRed">URL</label>
-                    <input type="text" ngModel name="urlRed" class="form-control" id="urlRed" placeholder="URL" required>
-                </div>    
-                <div class="modal-footer">
-                    <button type="button" id="add-redes-form" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Añadir cambios</button>
-                </div>
-            </form>
-            </div>   
+                    <div class="form-group">
+                        <label for="nombreRed">Red social</label>
+                        <!-- <input type="text" ngModel name="nombreRed" class="form-control" id="nombreRed" placeholder="Red social" required> -->
+                        <select ngModel name="nombreRed" class="form-select" id="nombreRed" placeholder="Red social"
+                            required>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="GitHub">GitHub</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                        </select>
+                    </div>
+                    <input type="hidden" ngModel="{{ editarRedes?.id }}" name="i" class="form-control" id="id"
+                        aria-describedby="emailHelp" placeholder="" />
+                    <div class="form-group">
+                        <label for="urlRed">URL</label>
+                        <input type="text" ngModel name="urlRed" class="form-control" id="urlRed" placeholder="URL"
+                            required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="add-redes-form" class="btn btn-secondary"
+                            data-dismiss="modal">Cerrar</button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Añadir
+                            cambios</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -130,75 +139,76 @@
 
 <!-- Modal Editar -->
 
-<div class="modal fade" id="editRedesModal" tabindex="-1" role="dialog" aria-labelledby="editRedesModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="updateRedesModalLabel">Editar proyecto {{ editarRedes?.nombreRed }}
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form #editForm="ngForm">
-                <input type="hidden" ngModel="{{ editarRedes?.id }}" name="id" class="form-control"
-                    id="id" aria-describedby="emailHelp" placeholder="" />
-                <div class="form-group">
-                    <label for="nombreRed">Redes sociales</label>
-                    <!-- <input type="text" ngModel="{{ editarRedes?.nombreRed }}" name="nombreRed"
+<div class="modal fade" id="editRedesModal" tabindex="-1" role="dialog" aria-labelledby="editRedesModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateRedesModalLabel">Editar proyecto {{ editarRedes?.nombreRed }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <input type="hidden" ngModel="{{ editarRedes?.id }}" name="id" class="form-control" id="id"
+                        aria-describedby="emailHelp" placeholder="" />
+                    <div class="form-group">
+                        <label for="nombreRed">Redes sociales</label>
+                        <!-- <input type="text" ngModel="{{ editarRedes?.nombreRed }}" name="nombreRed"
                         class="form-control" id="nombreRed" aria-describedby="emailHelp" placeholder="Red social" /> -->
-                        <select ngModel name="nombreRed" class="form-select" id="nombreRed" placeholder="Red social" required>
+                        <select ngModel name="nombreRed" class="form-select" id="nombreRed" placeholder="Red social"
+                            required>
                             <option value="Facebook">Facebook</option>
                             <option value="Instagram">Instagram</option>
                             <option value="Twitter">Twitter</option>
                             <option value="YouTube">YouTube</option>
                             <option value="GitHub">GitHub</option>
                             <option value="LinkedIn">LinkedIn</option>
-                          </select>
-                </div>
-                <div class="form-group">
-                    <label for="urlRed">URL</label>
-                    <input type="text" ngModel="{{ editarRedes?.urlRed }}" name="urlRed"
-                        class="form-control" id="urlRed" aria-describedby="emailHelp"
-                        placeholder="URL" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar
-                    </button>
-                    <button (click)="onUpdateRedes(editForm.value)" data-dismiss="modal"
-                        class="btn btn-primary">Añadir cambios
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- Modal Delete -->
-
-<div data-bs-toggle="modal" data-bs-target="#deleteModelLabel" class="modal fade" id="deleteRedesModal"
-        tabindex="-1" role="dialog" aria-labelledby="deleteRedesModalLabel" aria-hidden="true">
-
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="deleteRedesModalLabel">Eliminar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p>Estas seguro de eliminar {{eliminarRedes?.nombreRed}} de tus redes sociales?</p>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button (click)="onDeleteRedes(eliminarRedes!.id)" class="btn btn-danger"
-                    data-dismiss="modal">Si</button>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="urlRed">URL</label>
+                        <input type="text" ngModel="{{ editarRedes?.urlRed }}" name="urlRed" class="form-control"
+                            id="urlRed" aria-describedby="emailHelp" placeholder="URL" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar
+                        </button>
+                        <button (click)="onUpdateRedes(editForm.value)" data-dismiss="modal"
+                            class="btn btn-primary">Añadir cambios
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal Delete -->
+
+<div data-bs-toggle="modal" data-bs-target="#deleteModelLabel" class="modal fade" id="deleteRedesModal" tabindex="-1"
+    role="dialog" aria-labelledby="deleteRedesModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteRedesModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Estas seguro de eliminar {{eliminarRedes?.nombreRed}} de tus redes sociales?</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeleteRedes(eliminarRedes!.id)" class="btn btn-danger"
+                        data-dismiss="modal">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal Login -->

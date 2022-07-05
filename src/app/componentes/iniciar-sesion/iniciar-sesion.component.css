@@ -1,17 +1,25 @@
 .fondo-iniciar-sesion {
     padding-top: 200px;
     padding-bottom: 40px;
-    background-color: white;
+    /* background-color: #1A2E40; */
+    background: linear-gradient(to bottom right, #1A2E40, #06080D);
 }
 
-.holis {
+.logo-arg {
     display: flex;
     font-size: 200%;
 }
 
+.btn-lg {
+    background-color: #212529;
+}
 
 .form-floating {
     margin-top: 10px;
+}
+
+.ingreso {
+    color: #5CB9F2;
 }
 
 .iniciar-sesion {    
@@ -21,13 +29,13 @@
     margin: auto;
 }
 
-.iniciar-sesion .checkbox {
-    font-weight: 400;
-}
+/* .iniciar-sesion .checkbox {
+    font-weight: 800;
+} */
 
-.iniciar-sesion .form-floating:focus-within {
+/* .iniciar-sesion .form-floating:focus-within {
     z-index: 2;
-}
+} */
 
 .iniciar-sesion input[type="email"] {
     margin-bottom: -1px;
@@ -58,3 +66,13 @@
     text-align: center;
 }
 
+@media (max-width: 667px) {
+    .logo-arg {
+        /* display: flex; */
+        font-size: 180%;
+    }
+
+    .logo-arg span {
+        padding-top: 5px;
+    }
+}

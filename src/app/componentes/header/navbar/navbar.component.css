@@ -2,9 +2,39 @@
     min-width: 210px;
     text-align: center;
     margin-bottom: 20px;
-    background-color: #D9D9D9;
-    border-color: #9b9b9b;    
+    background-color: #06080D;
+    border-color: #1B8EF2;
   }
+
+.navbar.navbar-collapse {
+     width:25%;
+}
+
+
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+#redesText {
+    color: white;
+}
+
+.navbar {
+    background-color: #06080D;
+}
+
+.dropdown-item:hover {
+    background-color: #1A2E40;
+}
+
+#redesIco {
+    color: #1B8EF2;
+}
+
+#navbarDropdown {
+    color: white;
+}
 
 .dropdown-divider {
     border-color: #D9D9D9;
@@ -12,11 +42,11 @@
 }
 
 .dropdown-menu:hover .btn-primary-tooltips{
-    color: #292b2c;
+    color: #5CB9F2;
 }
 
 .dropdown-menu:hover .btn-secondary-tooltip{
-    color: #292b2c;
+    color: #5CB9F2;
 }
 
 .agregar {
@@ -30,18 +60,17 @@
 
 .custom {
     padding-right: 10px;
-    color: black;
     text-decoration: none;
     
 }
 
 .btn-secondary-tooltip {
-    color: #9b9b9b;
+    color: #292b2c;
     float: left;
 }
 
 .btn-primary-tooltips {
-    color: #9b9b9b;
+    color: #292b2c;
     float: right;
 }
 
