@@ -6,8 +6,10 @@ export const environment = {
   production: false,
 
   // COMENTADO PARA PRUEBAS
-  // apiBaseUrl: 'https://argentinaprograma-leovaudagna.herokuapp.com/'
-  apiBaseUrl: 'http://localhost:8080/'
+  apiBaseUrl: 'https://argentinaprograma-leovaudagna.herokuapp.com/'
+
+  // UTILIZAR PARA PRUEBAS
+  // apiBaseUrl: 'http://localhost:8080/'
 };
 
 /*

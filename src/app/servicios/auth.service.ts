@@ -10,8 +10,8 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
 })
 export class AuthService {
 
-  // authURL = 'https://argentinaprograma-leovaudagna.herokuapp.com/auth/';
-  authURL = 'http://localhost:8080/auth/'
+  authURL = 'https://argentinaprograma-leovaudagna.herokuapp.com/auth/';
+  // authURL = 'http://localhost:8080/auth/'
 
   constructor(private httpClient: HttpClient) {}
 
