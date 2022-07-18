@@ -4,21 +4,29 @@
     text-align: center;
 }
 
+.corte {
+    width: 100vw;
+    height: 20vh;
+    background-color: #06080D;
+    clip-path: polygon(0 0, 100% 100%, 0 100%, 0 0%, 0 0);
+}
+
 .fondo-habilidades {
+    background-color: #06080D;
     padding-top: 100px;
     padding-bottom: 50px;
     padding-left: 30px;
     padding-right: 30px;
-    /* background-color: #313E40; */
     color: #EBF0F2;
 }
 
+
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .btn-secondary-tooltip {
-    color:black;
+    color: #5CB9F2;
 }
 
 .hard-skills {
@@ -30,18 +38,10 @@
 .btn-dark {
     text-align: center;
     line-height: 22px;
-    margin: 50px;
-     
+    margin: 20px;
+    background-color: #5CB9F2;
 }
 
 .nav-link {
-    padding:10px;
-}
-
-@media (max-width: 767px){
-    .fa {
-        margin-left: 30px;
-    }
-
-   
+    padding: 10px;
 }

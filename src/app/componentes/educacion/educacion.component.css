@@ -1,7 +1,7 @@
 .fondo-educacion {
     padding-top: 40px;    
     padding-bottom: 100px;
-    /* background-color: #D9D9D9; */
+    
     padding-left: 30px;
     padding-right: 30px;
     /* color: #313E40; */
@@ -13,20 +13,24 @@
     margin-right: 20px;
 }
 
+.btn-dark {
+    text-align: center;
+    line-height: 22px;
+    margin: 20px;
+    background-color: #5CB9F2;
+}
 
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
+}
+
+.btn-secondary-tooltip {
+    color: #5CB9F2;
 }
 
 .educacion-logo {
     filter: invert(1);
     max-width: 150px;
-}
-
-.btn-dark {
-    text-align: center;
-    line-height: 22px;  
-    margin: 20px;  
 }
 
 .nav-link {

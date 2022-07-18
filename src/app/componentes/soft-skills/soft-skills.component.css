@@ -5,9 +5,9 @@
 }
 
 .fondo-soft {
+    background: linear-gradient(to bottom, #06080D, #1A2E40);;
     padding-top: 40px;
     padding-bottom: 40px;
-    /* background-color: #313E40; */
     color: #EBF0F2;
     margin: 0;
     padding-left: 30px;
@@ -16,11 +16,11 @@
 }
 
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .btn-secondary-tooltip {
-    color:black;
+    color: #5CB9F2;
 }
 
 .soft-skills {
@@ -33,17 +33,10 @@
 .btn-dark {
     text-align: center;
     line-height: 22px;
-    margin: 50px;
-     
+    margin: 20px;
+    background-color: #5CB9F2;
 }
 
 .nav-link {
     padding:10px;
-}
-
-@media (max-width: 767px){
-    .fa {
-        margin-left: 30px;
-    }
-   
 }

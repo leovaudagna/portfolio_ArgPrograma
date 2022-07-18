@@ -11,18 +11,19 @@ p {
 }
 
 html, body { 
-    /* margin-left: 0;
-    height: 100%; */
+
+    margin-right: 0 !important ;
     color: aliceblue;
     background: linear-gradient(to bottom right, #1A2E40, #06080D);
     height: 100%;
-    margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    border: none;
+    overflow-x:hidden;
     
 }
 
@@ -32,10 +33,24 @@ body {
 
 
 .modal-content {
-    background-color: grey;
+    background-color: #06080D;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, #5CB9F2, #22A2F2);
+    border-image-slice: 1;
+    padding: 25px;
+}
+
+.modal-footer {
+    border-top: 0 none;
 }
 
 
 .modal label {
     padding-top: 10px;
+}
+
+.close {
+    background-color: #06080D;
+    color: #5CB9F2;
+    border:none;
 }

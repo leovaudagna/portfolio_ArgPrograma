@@ -28,7 +28,7 @@
             <div class="col-md-auto educacion-texto">
                 <h3>{{educacion.titulo}}</h3>
                 <p>{{educacion.establecimiento}}</p>
-                <span>{{educacion.fechaInic_ed}}</span><span> / </span><span>{{educacion.fechaFin_ed}}</span>
+                <span style="color: #5CB9F2;">{{educacion.fechaInic_ed}}</span><span> / </span><span style="color: #5CB9F2;">{{educacion.fechaFin_ed}}</span>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
 
     <div class="añadir text-center">
         <button *ngIf="isAdmin" type="button" class="btn btn-dark" data-target="#addEducationModal" data-toggle="modal" (click)="onOpenModal('add')">
-            <a class="nav-link" style="color:aliceblue"> Añadir educacion</a>
+            <a class="nav-link" style="color:#06080D"> Añadir educacion</a>
            <span class="sr-only">(current)</span>
         </button>
     </div>

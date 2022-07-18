@@ -3,15 +3,11 @@
     padding-bottom: 60px;
     padding-left: 30px;
     padding-right: 30px;
-    /* background-color: #D9D9D9; */
-    /* color: #313E40; */
 }
 
 .lista-experiencia {
     margin: 45px;
     padding: 25px 20px;
-    /* border-style: outset;
-    border-color: linear-gradient(to bottom right, #22A2F2, #1B8EF2) */
     border-width: 3px;
     border-style: solid;
     border-image:
@@ -35,6 +31,7 @@
         text-align: center;
     }
 }
+
 
 
 

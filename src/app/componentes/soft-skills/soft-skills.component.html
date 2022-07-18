@@ -9,10 +9,11 @@
                 <circle-progress [title]="sskill.nombreSSkill" [units]="''" [showSubtitle]="true" [imageSrc]="''"
                     [percent]="sskill.porcentajeSSkill" [subtitleFontSize]="'12'"
                     [subtitle]="sskill.porcentajeSSkill.toString() + '%'" [radius]="80" [outerStrokeWidth]="10"
-                    [innerStrokeWidth]="8" [outerStrokeColor]="'#D9D9D9'" [innerStrokeColor]="'#8FA1A6'"
+                    [innerStrokeWidth]="8" [outerStrokeColor]="'#1B8EF2'" [innerStrokeColor]="'#5CB9F2'"
                     [animation]="true" [animationDuration]="1400" [showInnerStroke]="true" [titleColor]="'#D9D9D9'"
                     [showUnits]="false" [titleFontWeight]="'200'">
                 </circle-progress>
+                <div>
                 <a *ngIf="isAdmin" (click)="onOpenModalS('edit', sskill)" data-target="#editSoftSkillsModal"
                     class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal"
                     data-original-title="Edit"><i class="fa fa-pencil"></i>
@@ -22,6 +23,7 @@
                     data-original-title="Delete">
                     <i class="fa fa-times"></i>
                 </a>
+            </div>
             </div>
         </div>
     </div>
@@ -34,7 +36,7 @@
         <div class="text-center">
             <button *ngIf="isAdmin" type="button" class="btn btn-dark" data-target="#addSoftSkillModal"
                 data-toggle="modal" (click)="onOpenModalS('add')">
-                <a class="nav-link" style="color:aliceblue">Añadir Soft-Skill</a>
+                <a class="nav-link" style="color:#06080D">Añadir Soft-Skill</a>
                 <span class="sr-only">(current)</span>
             </button>
         </div>

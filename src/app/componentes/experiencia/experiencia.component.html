@@ -3,14 +3,7 @@
     
     <div class="lista-experiencia" *ngFor="let experiencia of listaExperiencia">
         <div class="col text-end">
-            <a *ngIf="isAdmin" (click)="onOpenModal('edit', experiencia)" data-target="#editExperienciaModal"
-                class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal" data-original-title="Edit"><i
-                    class="fa fa-pencil"></i>
-            </a>
-            <a *ngIf="isAdmin" (click)="onOpenModal('delete', experiencia)" data-target="#deleteExperienciaModal"
-                class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal" data-original-title="Delete">
-                <i class="fa fa-times"></i>
-            </a>
+            
         </div>
         <div class="row">
             <div class="col-md-auto">
@@ -19,6 +12,16 @@
                 <p>{{experiencia.descripcion}}</p>
                 <span style="color: #5CB9F2;">{{experiencia.fechaInic}}</span><span> / </span><span style="color: #5CB9F2;">{{experiencia.fechaFin}}</span>
                 <p>{{experiencia.lugar}}</p>
+            </div>
+            <div class="text-right">
+                <span><a *ngIf="isAdmin" (click)="onOpenModal('edit', experiencia)" data-target="#editExperienciaModal"
+                class="btn btn-primary-tooltips" data-placement="top" data-toggle="modal" data-original-title="Edit"><i
+                    class="fa fa-pencil"></i>
+            </a>
+            <a *ngIf="isAdmin" (click)="onOpenModal('delete', experiencia)" data-target="#deleteExperienciaModal"
+                class="btn btn-secondary-tooltip" data-placement="top" data-toggle="modal" data-original-title="Delete">
+                <i class="fa fa-times"></i>
+            </a></span>
             </div>
         </div>
     </div>

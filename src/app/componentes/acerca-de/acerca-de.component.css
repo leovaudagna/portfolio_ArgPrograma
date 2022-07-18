@@ -7,18 +7,22 @@
     top: 30%;
     left: 5%;
     margin: auto;
-    filter: grayscale(00%);
+    filter: grayscale(100%);
 }
 
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .acerca-de {
     padding-top: 25px;
-    padding-bottom: 200px;
+    padding-bottom: 80px;
     text-align: justify;
     /* background-color: #313E40; */
+}
+
+.acerca {
+    height: 40px;
 }
 
 .texto-portada {
@@ -31,11 +35,20 @@
     #foto-perfil {
         width: 350px;
         top: 40%;
-
     }
 }
 
-
+@media (max-width: 820px) {
+    #foto-perfil {
+        float: inline-end;
+        position: absolute;
+        justify-content: center;
+        /* width: 380px;      */
+        top: 290px;
+        margin: auto;
+        right: 200;
+    }
+}
 
 @media (max-width: 767px){
     .acerca-de {
@@ -48,7 +61,7 @@
         float: inline-end;
         position: absolute;
         justify-content: center;
-        width: 380px;     
+        /* width: 380px;      */
         top: 230px;
         margin: auto;
         left: 0;

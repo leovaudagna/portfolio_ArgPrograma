@@ -24,6 +24,12 @@
     background-color: #06080D;
 }
 
+@media (max-width: 767px) {
+    .navbar {
+        width: 103%;
+    }
+}
+
 .dropdown-item:hover {
     background-color: #1A2E40;
 }

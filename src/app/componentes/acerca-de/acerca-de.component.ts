@@ -41,21 +41,6 @@ export class AcercaDeComponent implements OnInit {
     })
   }
 
-  // public crearPersona(persona: Persona) {
-  //   this.editarPersona = persona;
-  //   document.getElementById('add-persona-form')?.click();
-  //   this.personaService.crearPersona(persona).subscribe({
-  //     next: (response: Persona) => {
-  //       console.log(response);
-  //       this.getPersona();
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //       this.getPersona();
-  //     }
-  //   })
-  // }
-
   public onOpenModal(mode: String, persona?: Persona): void {
     let container = document.getElementById('main-container');
     let button = document.createElement('button');
@@ -91,18 +76,5 @@ export class AcercaDeComponent implements OnInit {
       }
     })
   }
-
-  // public onDeletePersona(id: number): void {
-  //   this.personanService.deletePersona(id).subscribe({
-  //     next: (response: void) => {
-  //       console.log(response);
-  //       this.getPersona();
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //       this.getPersona();
-  //     }
-  // })
-  // }  
 
 }

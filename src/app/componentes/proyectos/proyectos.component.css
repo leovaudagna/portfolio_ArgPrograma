@@ -8,7 +8,7 @@
     padding-bottom: 100px;
     padding-left: 30px;
     padding-right: 30px;
-    /* background-color: #5C6F73; */
+    background-color: #1A2E40;
     color: #EBF0F2;   
 }
 
@@ -18,25 +18,25 @@
     margin-right: 20px;
 }
 
+.btn-dark {
+    text-align: center;
+    line-height: 22px;
+    margin: 20px;
+    background-color: #5CB9F2;
+}
+
 .btn-primary-tooltips {
-    color: black;
+    color: #5CB9F2;
 }
 
 .btn-secondary-tooltip {
-    color: black;
+    color: #5CB9F2;
 }
 
 .prueba {
     padding-top: 100px;
     padding-bottom: 100px;
     text-align: center;
-}
-
-.btn-dark {
-    text-align: center;
-    line-height: 22px;
-    margin: 50px;
-
 }
 
 .nav-link {
