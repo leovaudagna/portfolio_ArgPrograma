@@ -44,13 +44,13 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(
-    private redesService: HeaderService, 
+    private redesService: HeaderService,
     private tokenService: TokenService,
 
     //PRUEBAS
     private authService: AuthService,
     private router: Router
-    
+
   ) { }
 
 
@@ -90,7 +90,7 @@ export class NavbarComponent implements OnInit {
       data => {
         this.isLogged = true;
         this.isLoginFail = false;
-        
+
         this.tokenService.setToken(data.token!);
         // this.tokenService.setUserName(data.nombreUsuario);
         // this.tokenService.setAuthorities(data.authorities);
@@ -102,7 +102,7 @@ export class NavbarComponent implements OnInit {
         this.isLoginFail = true;
         this.errMsj = err.error.mensaje;
         // console.log(err.error.message);
-      }      
+      }
     );
   }
 
@@ -150,10 +150,9 @@ export class NavbarComponent implements OnInit {
     document.getElementById('add-redes-form')?.click();
     this.redesService.addRedes(addForm.value).subscribe({
       next: (response: Redes) => {
-        console.log(response);
+        // console.log(response);
         this.getRedes();
         addForm.resetForm();
-        window.location.reload();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message)
@@ -173,7 +172,6 @@ export class NavbarComponent implements OnInit {
       error: (error: HttpErrorResponse) => {
         alert(error.message);
         this.getRedes();
-        window.location.reload();
       }
     })
   }
@@ -188,7 +186,7 @@ export class NavbarComponent implements OnInit {
         alert(error.message);
         this.getRedes();
       }
-  })
+    })
   }
 
 
